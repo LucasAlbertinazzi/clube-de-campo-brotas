@@ -25,7 +25,7 @@ const steps = [
 const faq = [
   [
     "A mensalidade já inclui a nuvem e a segurança?",
-    "A referência de R$2.490 por mês já inclui um orçamento de R$800 para infraestrutura, proteção e backups. A entrada é de R$7.900, com o restante do desenvolvimento distribuído em 48 meses. Tarifas bancárias, domínio e contas das lojas de aplicativos ficam separados. Consulte a seção Investimento para a composição e as condições.",
+    "Sim. A mensalidade de R$2.490 inclui hospedagem, banco de dados, proteção, backups e manutenção. A implantação é de R$7.900, com contratação por 48 meses. Domínio, tarifas bancárias e contas das lojas de aplicativos ficam separados. Consulte a seção Investimento para conhecer o escopo e as condições.",
   ],
   [
     "O portal e o aplicativo poderão usar dois fatores?",

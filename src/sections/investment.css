@@ -163,87 +163,53 @@
   flex-direction: column;
   gap: 20px;
 }
-.investment-savings-card {
-  border: 1px solid #dde8ee;
-  background: white;
-  border-radius: 18px;
-  padding: 32px;
+.investment-service-card {
   flex: 1;
+  padding: 32px;
+  border: 1px solid #dde8ee;
+  border-radius: 18px;
+  background: white;
 }
-.investment-savings-card h3 {
+.investment-service-card > h3 {
+  margin-top: 14px;
   font-size: clamp(25px, 2.5vw, 33px);
   line-height: 1.2;
-  margin-top: 14px;
 }
-.investment-comparison {
+.investment-service-list {
   display: grid;
-  gap: 10px;
-  margin-top: 27px;
+  gap: 22px;
+  padding: 0;
+  margin: 29px 0 20px;
+  list-style: none;
 }
-.investment-comparison > div:not(.comparison-bar) {
+.investment-service-list > li {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 12px;
+  align-items: flex-start;
+  gap: 13px;
 }
-.investment-comparison strong {
-  font-size: 14px;
-}
-.comparison-bar {
-  height: 7px;
-  border-radius: 5px;
-}
-.comparison-bar-old {
-  background: #dfe8ed;
-  margin-bottom: 8px;
-}
-.comparison-bar-new {
-  background: var(--blue);
-}
-.investment-saving-value {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-.investment-saving-value > strong {
-  font-size: 31px;
+.investment-service-list > li > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  border-radius: 10px;
+  background: #edf6fa;
   color: var(--blue);
-  font-weight: 740;
-  letter-spacing: -0.055em;
-  white-space: nowrap;
 }
-.investment-saving-value small {
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0;
-  font-weight: 450;
-  margin-left: 5px;
-}
-.investment-saving-value > span {
-  color: #2d735c;
-  background: #ecf7f1;
-  padding: 7px 9px;
-  border-radius: 5px;
-  font-size: 10px;
+.investment-service-list h4 {
+  font-size: 13px;
   line-height: 1.5;
-  text-align: center;
+  letter-spacing: -0.015em;
 }
-.investment-savings-card > p {
-  font-size: 12px;
+.investment-service-list p {
+  margin-top: 5px;
   color: var(--muted);
-  margin-top: 13px;
-}
-.investment-savings-card > small {
-  display: block;
-  font-size: 10px;
-  color: var(--muted);
+  font-size: 11px;
   line-height: 1.8;
-  margin-top: 19px;
-  padding-top: 17px;
-  border-top: 1px solid var(--line);
+}
+.investment-service-card > .text-button {
+  font-size: 11px;
 }
 .investment-domain {
   display: flex;
@@ -263,34 +229,6 @@
   font-size: 11px;
   color: var(--muted);
   margin-top: 6px;
-}
-.investment-total-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 28px;
-}
-.investment-total-grid > div {
-  border: 1px solid #dfe9ef;
-  background: #ffffff80;
-  padding: 23px;
-  border-radius: 12px;
-}
-.investment-total-grid span {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-}
-.investment-total-grid strong {
-  display: block;
-  font-size: 25px;
-  letter-spacing: -0.045em;
-  margin-top: 11px;
-}
-.investment-total-grid p {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 11px;
 }
 .investment-disclosures {
   display: grid;
@@ -325,30 +263,6 @@
   font-size: 12px;
   color: var(--muted);
 }
-.investment-breakdown {
-  margin: 18px 0;
-}
-.investment-breakdown > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-  line-height: 1.65;
-}
-.investment-breakdown dd {
-  color: var(--navy);
-  white-space: nowrap;
-  font-weight: 650;
-  margin: 0;
-}
-.investment-breakdown .breakdown-total {
-  color: var(--blue);
-  font-weight: 700;
-}
-.investment-breakdown .breakdown-total dd {
-  color: var(--blue);
-}
 .investment-conditions {
   margin: 0;
   padding-left: 17px;
@@ -359,12 +273,6 @@
 .investment-conditions strong {
   color: var(--navy);
 }
-.investment-conditions a,
-.cloud-info-grid a {
-  color: var(--blue);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 .security-plan-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -374,8 +282,7 @@
 .security-plan-copy {
   padding-top: 18px;
 }
-.security-plan-copy > h3,
-.cloud-heading h3 {
+.security-plan-copy > h3 {
   font-size: clamp(29px, 3vw, 41px);
   line-height: 1.18;
   margin-top: 16px;
@@ -575,14 +482,12 @@
   color: var(--blue);
   margin-bottom: 17px;
 }
-.security-protections h4,
-.cloud-info-grid h4 {
+.security-protections h4 {
   font-size: 15px;
   line-height: 1.4;
   letter-spacing: -0.025em;
 }
-.security-protections p,
-.cloud-info-grid p {
+.security-protections p {
   font-size: 12px;
   color: var(--muted);
   margin-top: 11px;
@@ -606,121 +511,6 @@
 .investment-note strong {
   color: var(--navy);
 }
-.cloud-heading {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 45px;
-  margin: 14px 0 32px;
-}
-.cloud-heading > div > p {
-  color: var(--muted);
-  margin-top: 18px;
-  max-width: 650px;
-  font-size: 13px;
-}
-.cloud-budget {
-  border-left: 1px solid #d3e2eb;
-  padding: 10px 0 10px 35px;
-}
-.cloud-budget > span,
-.cloud-budget > small {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.cloud-budget strong {
-  display: block;
-  font-size: 48px;
-  color: var(--blue);
-  letter-spacing: -0.06em;
-  margin: 5px 0;
-}
-.cloud-table-wrap {
-  background: white;
-  border: 1px solid #dae6ee;
-  border-radius: 13px;
-  overflow: hidden;
-}
-.cloud-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-.cloud-table caption {
-  text-align: left;
-  padding: 18px 25px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.75;
-}
-.cloud-table th,
-.cloud-table td {
-  text-align: left;
-  padding: 17px 25px;
-  border-top: 1px solid #e7eef3;
-}
-.cloud-table thead th {
-  background: #f8fbfd;
-  font-size: 11px;
-  font-weight: 550;
-  color: var(--muted);
-}
-.cloud-table th[scope="row"] {
-  font-weight: 550;
-}
-.cloud-table th a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-.cloud-table th a:hover {
-  color: var(--blue);
-  text-decoration: underline;
-}
-.cloud-table th small {
-  display: block;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 400;
-  margin-top: 6px;
-}
-.cloud-table td {
-  white-space: nowrap;
-}
-.cloud-table th:last-child,
-.cloud-table td:last-child {
-  text-align: right;
-}
-.cloud-table tfoot {
-  background: #eaf5fa;
-  color: var(--blue);
-  font-weight: 750;
-}
-.cloud-table tfoot th {
-  font-weight: 750;
-}
-.cloud-info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 30px;
-}
-.cloud-info-grid article {
-  padding: 22px 0;
-}
-.cloud-info-grid article > svg {
-  color: var(--blue);
-  margin-bottom: 15px;
-}
-.cloud-info-grid a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  margin-top: 16px;
-}
 @media (max-width: 1250px) {
   .main-nav {
     margin-right: 8px;
@@ -739,6 +529,9 @@
   }
 }
 @media (max-width: 1000px) {
+  .investment-service-card {
+    padding: 26px;
+  }
   .investment-section-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -751,27 +544,10 @@
   .investment-main-card {
     padding: 28px;
   }
-  .investment-savings-card {
-    padding: 26px;
-  }
-  .investment-saving-value {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 7px;
-  }
   .investment-card-label {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
-  }
-  .investment-total-grid {
-    gap: 18px;
-  }
-  .investment-total-grid > div {
-    padding: 20px;
-  }
-  .investment-total-grid strong {
-    font-size: 22px;
   }
   .security-plan-grid {
     gap: 28px;
@@ -783,17 +559,17 @@
   .security-protections {
     grid-template-columns: 1fr 1fr;
   }
-  .cloud-heading {
-    gap: 25px;
-  }
-  .cloud-budget {
-    padding-left: 25px;
-  }
-  .cloud-budget strong {
-    font-size: 39px;
-  }
 }
 @media (max-width: 760px) {
+  .investment-service-card {
+    padding: 25px;
+  }
+  .investment-service-card > h3 {
+    font-size: 29px;
+  }
+  .investment-service-list p {
+    font-size: 12px;
+  }
   .investment-section-heading .investment-eyebrow {
     margin-bottom: 15px;
   }
@@ -873,39 +649,8 @@
     font-size: 10px;
     gap: 9px;
   }
-  .investment-savings-card {
-    padding: 25px;
-  }
-  .investment-savings-card h3 {
-    font-size: 29px;
-  }
-  .investment-saving-value {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-  .investment-saving-value > span {
-    font-size: 9px;
-  }
-  .investment-saving-value > strong {
-    font-size: 29px;
-  }
   .investment-domain {
     padding: 19px;
-  }
-  .investment-total-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  .investment-total-grid > div {
-    padding: 22px;
-  }
-  .investment-total-grid strong {
-    font-size: 27px;
-  }
-  .investment-total-grid p {
-    font-size: 12px;
   }
   .investment-disclosures {
     margin-top: 20px;
@@ -917,10 +662,6 @@
   .investment-disclosure > div {
     padding: 0 19px 21px;
     font-size: 11px;
-  }
-  .investment-breakdown > div {
-    font-size: 10px;
-    gap: 10px;
   }
   .security-plan-grid {
     grid-template-columns: 1fr;
@@ -962,65 +703,13 @@
   .security-protections article {
     padding: 23px;
   }
-  .security-protections h4,
-  .cloud-info-grid h4 {
+  .security-protections h4 {
     font-size: 16px;
   }
   .investment-note {
     padding: 18px;
     font-size: 10px;
     gap: 12px;
-  }
-  .cloud-heading {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    margin-top: 2px;
-  }
-  .cloud-heading h3 {
-    font-size: 29px;
-  }
-  .cloud-budget {
-    border-left: 0;
-    border-top: 1px solid #d3e2eb;
-    padding: 20px 0 0;
-  }
-  .cloud-budget strong {
-    font-size: 42px;
-  }
-  .cloud-table caption {
-    padding: 16px;
-    font-size: 10px;
-  }
-  .cloud-table th,
-  .cloud-table td {
-    padding: 16px 12px;
-    font-size: 11px;
-  }
-  .cloud-table th:nth-child(2),
-  .cloud-table td:nth-child(2) {
-    display: none;
-  }
-  .cloud-table th a {
-    gap: 5px;
-    line-height: 1.6;
-  }
-  .cloud-table th small {
-    font-size: 9px;
-    line-height: 1.7;
-  }
-  .cloud-table thead th {
-    font-size: 10px;
-  }
-  .cloud-table tfoot th {
-    line-height: 1.6;
-  }
-  .cloud-info-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-    margin-top: 18px;
-  }
-  .cloud-info-grid article {
-    border-bottom: 1px solid #dfe9ef;
   }
 }
 @media (max-width: 374px) {
@@ -1040,9 +729,5 @@
   }
   .investment-price {
     font-size: 47px;
-  }
-  .investment-saving-value {
-    align-items: flex-start;
-    flex-direction: column;
   }
 }
