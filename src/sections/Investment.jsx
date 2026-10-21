@@ -27,8 +27,8 @@ const protections = [
   },
   {
     icon: "qr",
-    title: "Um ingresso, uma entrada",
-    text: "Identificador exclusivo e validação no servidor, com registro de uso para impedir entradas duplicadas, inclusive entre celulares diferentes.",
+    title: "Validação online e contingência offline",
+    text: "Online, o servidor controla as entradas entre aparelhos. Offline, a lista protegida bloqueia repetição no mesmo celular; listas separadas por portaria e conferência de conflitos na sincronização organizam o uso de vários aparelhos.",
   },
   {
     icon: "reset",

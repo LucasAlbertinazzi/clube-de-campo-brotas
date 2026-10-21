@@ -5,7 +5,7 @@ const scope = [
   "Site, notícias, fotos e documentos",
   "Associados, dependentes e administração",
   "Consulta e integração de pagamentos",
-  "Eventos, ingressos e portaria pelo celular",
+  "Eventos, ingressos e portaria online e offline pelo celular",
   "Aplicativo Android e iOS em uma etapa posterior",
   `Manutenção e até ${proposal.supportHours} horas de atendimento por mês`,
 ];
@@ -143,8 +143,9 @@ export default function InvestmentPlan() {
               de lançamento dos aplicativos.
             </li>
             <li>
-              <strong>Portaria:</strong> celulares e conexão à internet
-              fornecidos pelo clube.
+              <strong>Portaria:</strong> celulares e internet para preparar as
+              listas e sincronizar as entradas, fornecidos pelo clube. A leitura
+              poderá continuar offline com a lista já baixada.
             </li>
             <li>
               <strong>Serviços adicionais:</strong> envios pagos de SMS e

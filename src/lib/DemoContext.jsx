@@ -16,6 +16,7 @@ import {
   restoreState,
   validateTicket,
 } from "./model.mjs";
+import { syncOfflineList } from "./offline.mjs";
 
 const DemoContext = createContext(null);
 
@@ -99,6 +100,11 @@ export function DemoProvider({ children }) {
         eventId,
       );
       if (next !== current.current) commit(next);
+      return result;
+    },
+    syncOffline(list) {
+      const result = syncOfflineList(current.current, list);
+      if (result.state !== current.current) commit(result.state);
       return result;
     },
     payBill(id) {

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDemo } from "../lib/DemoContext.jsx";
 import { ticketPayload } from "../lib/model.mjs";
+import { useOfflineGate } from "../lib/useOfflineGate.jsx";
 import { Button, Icon, PhoneFrame, Tabs, asset } from "../components/ui.jsx";
 import CameraScanner from "../components/CameraScanner.jsx";
 import QrCode from "../components/QrCode.jsx";
+import OfflineGateControls from "../components/OfflineGateControls.jsx";
 
 const ready = {
   status: "ready",
@@ -12,16 +14,23 @@ const ready = {
 };
 export default function Gate() {
   const { state, actions } = useDemo();
-  const [eventId, setEventId] = useState("verao");
+  const offlineGate = useOfflineGate(state, actions);
+  const [eventId, setEventId] = useState(
+    () => offlineGate.list?.event.id ?? "verao",
+  );
   const [scenario, setScenario] = useState("valid");
   const [result, setResult] = useState(ready);
   const [code, setCode] = useState("CCB-DEMO-001");
   const [camera, setCamera] = useState(false);
-  const ticket =
-    state.tickets.find((item) => item.eventId === eventId) ?? state.tickets[0];
+  const availableTickets = offlineGate.offline
+    ? (offlineGate.list?.tickets ?? [])
+    : state.tickets;
+  const ticket = availableTickets.find((item) => item.eventId === eventId);
   const read = (value) => {
     setCamera(false);
-    const outcome = actions.scan(value, eventId);
+    const outcome = offlineGate.offline
+      ? offlineGate.scan(value, eventId)
+      : actions.scan(value, eventId);
     setResult(outcome);
     setScenario(
       outcome.status === "authorized"
@@ -47,12 +56,13 @@ export default function Gate() {
       });
       return;
     }
-    if (value === "used") actions.scan(ticketPayload(ticket), eventId);
+    if (value === "used") read(ticketPayload(ticket));
     read(ticketPayload(ticket));
   };
-  const checkins = state.checkins.filter(
-    (item) => item.eventId === eventId,
-  ).length;
+  const checkins = offlineGate.offline
+    ? (offlineGate.list?.entries.filter((item) => item.eventId === eventId)
+        .length ?? 0)
+    : state.checkins.filter((item) => item.eventId === eventId).length;
   return (
     <section className="section gate-section section-anchor" id="portaria">
       <div className="container gate-layout">
@@ -63,8 +73,8 @@ export default function Gate() {
             pelo celular.
           </h2>
           <p>
-            A câmera lê o QR Code. O sistema confirma o ingresso e registra a
-            entrada.
+            A câmera lê o QR Code e registra a entrada. Com a lista baixada
+            antes do evento, a portaria continua mesmo sem internet.
           </p>
           <Tabs
             className="gate-scenarios"
@@ -91,29 +101,41 @@ export default function Gate() {
               <span>3</span>Confirmar entrada
             </li>
           </ol>
+          <OfflineGateControls
+            gate={offlineGate}
+            eventId={eventId}
+            onChange={() => {
+              setResult(ready);
+              setScenario("valid");
+              setCamera(false);
+            }}
+          />
           <div className="gate-multi">
             <Icon name="phone" size={37} />
             <div>
-              <h3>Uma operação mais simples.</h3>
+              <h3>Uma operação preparada.</h3>
               <p>
-                No sistema final, a validação centralizada permitirá trabalhar
-                com um ou mais celulares e impedir a reutilização do ingresso.
+                Online, as entradas são validadas no servidor. Offline, o
+                aparelho bloqueia a repetição na própria lista e guarda as
+                entradas para sincronizar quando a conexão voltar.
               </p>
             </div>
           </div>
           <div className="connectivity-note">
-            <Icon name="wifi" size={28} />
+            <Icon name="phone" size={28} />
             <div>
-              <strong>Celular com câmera e conexão à internet.</strong>
+              <strong>Vários celulares offline precisam de organização.</strong>
               <span>
-                O fluxo proposto dispensa computador e leitor dedicado na
-                portaria.
+                Sem conexão, um celular não vê as leituras dos outros. Usar um
+                aparelho offline ou dividir a lista por portaria reduz esse
+                risco. Conflitos serão sinalizados ao sincronizar.
               </span>
             </div>
           </div>
           <p className="gate-demo-note">
-            Nesta apresentação, as leituras ficam no seu navegador. Não há
-            controle de acesso real ao clube.
+            Nesta apresentação, lista e leituras são fictícias e ficam no
+            navegador. O produto final terá armazenamento protegido no aparelho,
+            acesso autorizado antes do evento e validade da lista.
           </p>
         </div>
         <div className="gate-device-column">
@@ -124,7 +146,11 @@ export default function Gate() {
             <div className="gate-phone-header">
               <Icon name="scan" size={20} />
               <strong>Portaria</strong>
-              <span className="online-dot" title="Demonstração local" />
+              <span
+                className={`gate-connection-badge ${offlineGate.offline ? "is-offline" : ""}`}
+              >
+                {offlineGate.offline ? "Offline" : "Online"}
+              </span>
             </div>
             <label className="gate-event-select">
               <Icon name="calendar" size={18} />
@@ -133,6 +159,11 @@ export default function Gate() {
                 value={eventId}
                 onChange={(e) => {
                   setEventId(e.target.value);
+                  setScenario("valid");
+                  offlineGate.setOffline(
+                    offlineGate.pending > 0 &&
+                      offlineGate.list?.event.id === e.target.value,
+                  );
                   setResult(ready);
                   setCamera(false);
                 }}
@@ -232,12 +263,15 @@ export default function Gate() {
                   {checkins === 1
                     ? "entrada registrada"
                     : "entradas registradas"}
+                  {offlineGate.offline && " no aparelho"}
                 </span>
                 <button
                   type="button"
                   onClick={() => {
                     actions.resetCheckins();
+                    offlineGate.reset();
                     setResult(ready);
+                    setScenario("valid");
                     setCamera(false);
                   }}
                   aria-label="Reiniciar leituras de demonstração"

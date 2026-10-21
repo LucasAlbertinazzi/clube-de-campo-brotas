@@ -14,7 +14,7 @@ const steps = [
   {
     icon: "calendar",
     title: "Eventos e portaria",
-    text: "Inscrições, QR Code e teste piloto.",
+    text: "QR Code online/offline e teste piloto.",
   },
   {
     icon: "phone",
@@ -37,7 +37,15 @@ const faq = [
   ],
   [
     "É necessário um computador na portaria?",
-    "O fluxo de eventos foi pensado para funcionar em celular com câmera e internet. A integração com catracas ou equipamentos existentes será avaliada separadamente, se necessária.",
+    "O fluxo usa celular com câmera. Com internet, a equipe prepara e baixa a lista; durante o evento, poderá ler os QR Codes offline e sincronizar depois. A integração com catracas ou equipamentos existentes será avaliada separadamente, se necessária.",
+  ],
+  [
+    "Como a portaria funcionará sem internet?",
+    "Antes do evento, a equipe entra com seu acesso autorizado e baixa a lista atualizada no aparelho. Sem internet, o aplicativo consulta essa lista, bloqueia a repetição no mesmo celular e salva as entradas localmente. Quando a conexão voltar, os registros são sincronizados. Ingressos novos e cancelamentos posteriores ao download só serão conhecidos após atualizar a lista. A prévia desta página apenas simula esse fluxo com dados fictícios.",
+  ],
+  [
+    "É possível usar vários celulares offline?",
+    "Celulares desconectados não compartilham as leituras em tempo real. O plano operacional deverá usar um aparelho offline por evento ou dividir os ingressos em listas exclusivas por portaria/aparelho. Se o mesmo ingresso for aceito por aparelhos desconectados, a sincronização sinalizará o conflito para conferência, mas não desfará uma entrada que já aconteceu.",
   ],
   [
     "Os pagamentos e cadastros já são reais?",
@@ -45,7 +53,7 @@ const faq = [
   ],
   [
     "Como funcionará a segurança dos ingressos?",
-    "No produto final, cada ingresso terá um identificador validado no servidor, com registro de entrada e verificação de uso simultâneo. Nesta demonstração, os registros ficam somente no navegador e não servem como controle de acesso real.",
+    "No produto final, a validação online será centralizada. O modo offline usará uma lista protegida, autorizada e válida para o evento, com registro local e sincronização posterior. O bloqueio entre aparelhos desconectados depende da divisão das listas. Nesta demonstração, os registros ficam no navegador e não servem como controle de acesso real.",
   ],
   [
     "O que precisa ser confirmado antes da implantação?",
