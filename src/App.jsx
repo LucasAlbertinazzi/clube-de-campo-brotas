@@ -6,12 +6,14 @@ import AppShowcase from "./sections/AppShowcase.jsx";
 import Events from "./sections/Events.jsx";
 import Gate from "./sections/Gate.jsx";
 import Roadmap from "./sections/Roadmap.jsx";
+import Investment from "./sections/Investment.jsx";
 
 const links = [
   { href: "#proposta", label: "A proposta" },
   { href: "#experiencias", label: "Experiências" },
   { href: "#eventos", label: "Ingressos" },
   { href: "#implantacao", label: "Implantação" },
+  { href: "#investimento", label: "Investimento" },
 ];
 function Header() {
   const [open, setOpen] = useState(false);
@@ -84,6 +86,7 @@ export default function App() {
         <AppShowcase />
         <Events />
         <Gate />
+        <Investment />
         <Roadmap />
       </main>
     </>

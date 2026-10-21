@@ -1,0 +1,1048 @@
+.investment-section {
+  background: #f3f8fb;
+  border-block: 1px solid #e5eef2;
+}
+.investment-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.investment-eyebrow {
+  display: block;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+}
+.investment-section-heading .investment-eyebrow {
+  margin-bottom: 19px;
+}
+.investment-section-heading .section-heading {
+  margin-bottom: 0;
+}
+.investment-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+.investment-section .investment-tabs {
+  margin: 38px 0 30px;
+  width: fit-content;
+  background: #e7eff4;
+  padding: 5px;
+  border-radius: 10px;
+}
+.investment-section .investment-tabs > button {
+  min-height: 48px;
+  font-size: 13px;
+  padding: 12px 23px;
+  border-radius: 7px;
+}
+.investment-section .investment-tabs > button[aria-selected="true"] {
+  background: white;
+  box-shadow: 0 3px 12px #173a4e0a;
+}
+.investment-panel {
+  min-width: 0;
+}
+.investment-plan-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.investment-main-card {
+  background: #087da4;
+  color: white;
+  padding: 35px 37px;
+  border-radius: 18px;
+}
+.investment-card-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+}
+.investment-card-label > span:last-child {
+  background: #ffffff18;
+  border: 1px solid #ffffff30;
+  padding: 7px 10px;
+  border-radius: 20px;
+  letter-spacing: 0;
+  font-size: 10px;
+}
+.investment-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 29px;
+  font-size: clamp(45px, 4.9vw, 69px);
+  letter-spacing: -0.06em;
+  font-weight: 760;
+  line-height: 1.1;
+}
+.investment-price > span {
+  font-size: 18px;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+}
+.investment-price-description {
+  font-size: 13px;
+  color: #e0f1f8;
+  margin-top: 13px;
+}
+.investment-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 23px 0;
+  margin-top: 22px;
+  border-block: 1px solid #ffffff35;
+}
+.investment-entry > div {
+  display: grid;
+  gap: 7px;
+}
+.investment-entry span {
+  color: #d4ebf5;
+  font-size: 11px;
+}
+.investment-entry strong {
+  font-size: 25px;
+  font-weight: 680;
+  letter-spacing: -0.035em;
+}
+.investment-scope {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: grid;
+  gap: 13px;
+}
+.investment-scope li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.investment-scope svg {
+  color: #a3e2f5;
+  margin-top: 1px;
+}
+.investment-included {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 17px;
+  border-radius: 9px;
+  background: #07577350;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #d7eef7;
+}
+.investment-included svg {
+  margin-top: 3px;
+}
+.investment-included strong {
+  display: block;
+  color: white;
+  font-weight: 650;
+}
+.investment-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.investment-savings-card {
+  border: 1px solid #dde8ee;
+  background: white;
+  border-radius: 18px;
+  padding: 32px;
+  flex: 1;
+}
+.investment-savings-card h3 {
+  font-size: clamp(25px, 2.5vw, 33px);
+  line-height: 1.2;
+  margin-top: 14px;
+}
+.investment-comparison {
+  display: grid;
+  gap: 10px;
+  margin-top: 27px;
+}
+.investment-comparison > div:not(.comparison-bar) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+.investment-comparison strong {
+  font-size: 14px;
+}
+.comparison-bar {
+  height: 7px;
+  border-radius: 5px;
+}
+.comparison-bar-old {
+  background: #dfe8ed;
+  margin-bottom: 8px;
+}
+.comparison-bar-new {
+  background: var(--blue);
+}
+.investment-saving-value {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.investment-saving-value > strong {
+  font-size: 31px;
+  color: var(--blue);
+  font-weight: 740;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+.investment-saving-value small {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0;
+  font-weight: 450;
+  margin-left: 5px;
+}
+.investment-saving-value > span {
+  color: #2d735c;
+  background: #ecf7f1;
+  padding: 7px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+.investment-savings-card > p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 13px;
+}
+.investment-savings-card > small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+.investment-domain {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 23px;
+  border: 1px solid #dae7ee;
+  border-radius: 12px;
+}
+.investment-domain > svg {
+  color: var(--blue);
+}
+.investment-domain strong {
+  font-size: 12px;
+}
+.investment-domain p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.investment-total-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+.investment-total-grid > div {
+  border: 1px solid #dfe9ef;
+  background: #ffffff80;
+  padding: 23px;
+  border-radius: 12px;
+}
+.investment-total-grid span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.investment-total-grid strong {
+  display: block;
+  font-size: 25px;
+  letter-spacing: -0.045em;
+  margin-top: 11px;
+}
+.investment-total-grid p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 11px;
+}
+.investment-disclosures {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+.investment-disclosure {
+  background: white;
+  border: 1px solid #dfe9ef;
+  border-radius: 10px;
+}
+.investment-disclosure summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  padding: 21px 24px;
+  line-height: 1.6;
+}
+.investment-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+.investment-disclosure[open] summary > svg {
+  transform: rotate(180deg);
+}
+.investment-disclosure > div {
+  padding: 0 24px 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.investment-breakdown {
+  margin: 18px 0;
+}
+.investment-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.65;
+}
+.investment-breakdown dd {
+  color: var(--navy);
+  white-space: nowrap;
+  font-weight: 650;
+  margin: 0;
+}
+.investment-breakdown .breakdown-total {
+  color: var(--blue);
+  font-weight: 700;
+}
+.investment-breakdown .breakdown-total dd {
+  color: var(--blue);
+}
+.investment-conditions {
+  margin: 0;
+  padding-left: 17px;
+  display: grid;
+  gap: 17px;
+  line-height: 1.85;
+}
+.investment-conditions strong {
+  color: var(--navy);
+}
+.investment-conditions a,
+.cloud-info-grid a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.security-plan-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: start;
+  gap: clamp(32px, 6vw, 95px);
+}
+.security-plan-copy {
+  padding-top: 18px;
+}
+.security-plan-copy > h3,
+.cloud-heading h3 {
+  font-size: clamp(29px, 3vw, 41px);
+  line-height: 1.18;
+  margin-top: 16px;
+  letter-spacing: -0.05em;
+}
+.security-plan-copy > p {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+.security-login-steps {
+  display: grid;
+  gap: 21px;
+  list-style: none;
+  margin: 29px 0 0;
+  padding: 0;
+}
+.security-login-steps li {
+  display: flex;
+  gap: 15px;
+  align-items: start;
+}
+.security-login-steps li > span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: #e1f0f7;
+  color: var(--blue);
+  border: 1px solid #c8e2ee;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.security-login-steps strong {
+  font-size: 13px;
+}
+.security-login-steps p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.security-plan-copy > .security-recovery {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  padding: 18px;
+  border: 1px solid #d9e7ef;
+  border-radius: 10px;
+}
+.security-recovery svg {
+  color: var(--blue);
+  margin-top: 3px;
+}
+.security-preview {
+  border: 1px solid #dbe6ed;
+  border-radius: 17px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 15px 40px #23425a08;
+}
+.security-preview-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 19px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.security-preview-top > span:last-child {
+  font-size: 10px;
+  color: var(--muted);
+}
+.security-preview > .tabs {
+  margin: 19px 24px 0;
+}
+.security-preview > .tabs > button {
+  font-size: 12px;
+  min-height: 43px;
+}
+.auth-preview-body {
+  padding: 28px 32px;
+  text-align: center;
+  min-height: 425px;
+}
+.auth-symbol {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 20px;
+  background: #e9f5fa;
+  color: var(--blue);
+  border-radius: 19px;
+}
+.auth-symbol-success {
+  color: #268464;
+  background: #ecf8f2;
+}
+.auth-preview-body .investment-eyebrow {
+  font-size: 9px;
+}
+.auth-preview-body h3 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 10px auto 16px;
+  max-width: 280px;
+}
+.auth-preview-body p:not(.investment-eyebrow) {
+  color: var(--muted);
+  font-size: 12px;
+}
+.auth-preview-body .button {
+  margin-top: 23px;
+  font-size: 12px;
+}
+.auth-preview-body form label {
+  display: block;
+  font-size: 11px;
+  text-align: left;
+  margin: 19px 0 8px;
+  font-weight: 650;
+}
+.auth-preview-body input {
+  border: 1px solid #bed3df;
+  border-radius: 8px;
+  width: 100%;
+  background: #fbfdfe;
+  color: var(--navy);
+  font: inherit;
+  font-size: 24px;
+  text-align: center;
+  padding: 13px;
+  letter-spacing: 0.28em;
+  min-height: 56px;
+}
+.auth-preview-body input[aria-invalid="true"] {
+  border-color: #be5353;
+}
+.auth-preview-body .auth-code-hint {
+  font-size: 10px;
+  margin-top: 10px;
+}
+.auth-preview-body .auth-error {
+  color: #b42e3c !important;
+  font-size: 11px;
+  margin-top: 10px;
+}
+.auth-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 28px;
+  font-size: 9px;
+  color: #81949e;
+}
+.auth-progress .is-complete {
+  color: var(--blue);
+  font-weight: 650;
+}
+.auth-progress i {
+  background: #dae6ed;
+  width: 18px;
+  height: 1px;
+}
+.auth-demo-note {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding: 16px 24px;
+  font-size: 10px;
+  color: var(--muted);
+  background: #fbfdfe;
+}
+.auth-demo-note svg {
+  color: var(--blue);
+  margin-top: 2px;
+}
+.security-protections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 38px;
+}
+.security-protections article {
+  background: white;
+  border: 1px solid #dfe9ef;
+  border-radius: 12px;
+  padding: 25px;
+}
+.security-feature-icon {
+  display: inline-flex;
+  color: var(--blue);
+  margin-bottom: 17px;
+}
+.security-protections h4,
+.cloud-info-grid h4 {
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+.security-protections p,
+.cloud-info-grid p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 11px;
+  line-height: 1.85;
+}
+.investment-note {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 20px 23px;
+  border-radius: 10px;
+  border: 1px solid #d8e7ee;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.investment-note > svg {
+  color: var(--blue);
+  margin-top: 3px;
+}
+.investment-note strong {
+  color: var(--navy);
+}
+.cloud-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 45px;
+  margin: 14px 0 32px;
+}
+.cloud-heading > div > p {
+  color: var(--muted);
+  margin-top: 18px;
+  max-width: 650px;
+  font-size: 13px;
+}
+.cloud-budget {
+  border-left: 1px solid #d3e2eb;
+  padding: 10px 0 10px 35px;
+}
+.cloud-budget > span,
+.cloud-budget > small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.cloud-budget strong {
+  display: block;
+  font-size: 48px;
+  color: var(--blue);
+  letter-spacing: -0.06em;
+  margin: 5px 0;
+}
+.cloud-table-wrap {
+  background: white;
+  border: 1px solid #dae6ee;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.cloud-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.cloud-table caption {
+  text-align: left;
+  padding: 18px 25px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.75;
+}
+.cloud-table th,
+.cloud-table td {
+  text-align: left;
+  padding: 17px 25px;
+  border-top: 1px solid #e7eef3;
+}
+.cloud-table thead th {
+  background: #f8fbfd;
+  font-size: 11px;
+  font-weight: 550;
+  color: var(--muted);
+}
+.cloud-table th[scope="row"] {
+  font-weight: 550;
+}
+.cloud-table th a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.cloud-table th a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.cloud-table th small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 6px;
+}
+.cloud-table td {
+  white-space: nowrap;
+}
+.cloud-table th:last-child,
+.cloud-table td:last-child {
+  text-align: right;
+}
+.cloud-table tfoot {
+  background: #eaf5fa;
+  color: var(--blue);
+  font-weight: 750;
+}
+.cloud-table tfoot th {
+  font-weight: 750;
+}
+.cloud-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 30px;
+}
+.cloud-info-grid article {
+  padding: 22px 0;
+}
+.cloud-info-grid article > svg {
+  color: var(--blue);
+  margin-bottom: 15px;
+}
+.cloud-info-grid a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  margin-top: 16px;
+}
+@media (max-width: 1250px) {
+  .main-nav {
+    margin-right: 8px;
+    gap: 20px;
+  }
+  .header-layout {
+    gap: 21px;
+  }
+}
+@media (min-width: 761px) and (max-width: 1150px) {
+  .header-cta {
+    display: none;
+  }
+  .main-nav {
+    margin-right: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .investment-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .investment-plan-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .investment-main-card {
+    padding: 28px;
+  }
+  .investment-savings-card {
+    padding: 26px;
+  }
+  .investment-saving-value {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .investment-card-label {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .investment-total-grid {
+    gap: 18px;
+  }
+  .investment-total-grid > div {
+    padding: 20px;
+  }
+  .investment-total-grid strong {
+    font-size: 22px;
+  }
+  .security-plan-grid {
+    gap: 28px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .auth-preview-body {
+    padding: 25px;
+  }
+  .security-protections {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cloud-heading {
+    gap: 25px;
+  }
+  .cloud-budget {
+    padding-left: 25px;
+  }
+  .cloud-budget strong {
+    font-size: 39px;
+  }
+}
+@media (max-width: 760px) {
+  .investment-section-heading .investment-eyebrow {
+    margin-bottom: 15px;
+  }
+  .investment-section-heading .section-heading h2 {
+    font-size: 34px;
+  }
+  .investment-reference {
+    font-size: 10px;
+  }
+  .investment-section .investment-tabs {
+    width: 100%;
+    margin: 26px 0 23px;
+    padding: 4px;
+    gap: 2px;
+  }
+  .investment-section .investment-tabs > button {
+    padding: 11px 5px;
+    flex: 1;
+    font-size: 10px;
+    min-height: 48px;
+    gap: 5px;
+  }
+  .investment-section .investment-tabs > button > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .investment-plan-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .investment-main-card {
+    padding: 25px 23px;
+    border-radius: 14px;
+  }
+  .investment-card-label {
+    flex-direction: row;
+    align-items: center;
+    font-size: 9px;
+    letter-spacing: 0.055em;
+  }
+  .investment-card-label > span:last-child {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  .investment-price {
+    font-size: 51px;
+    margin-top: 26px;
+    gap: 9px;
+  }
+  .investment-price > span {
+    font-size: 15px;
+  }
+  .investment-price-description {
+    font-size: 12px;
+  }
+  .investment-entry {
+    gap: 13px;
+    padding: 19px 0;
+    margin-top: 22px;
+  }
+  .investment-entry span {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .investment-entry strong {
+    font-size: 23px;
+  }
+  .investment-scope {
+    gap: 14px;
+  }
+  .investment-scope li {
+    font-size: 11px;
+    gap: 9px;
+  }
+  .investment-included {
+    padding: 14px;
+    font-size: 10px;
+    gap: 9px;
+  }
+  .investment-savings-card {
+    padding: 25px;
+  }
+  .investment-savings-card h3 {
+    font-size: 29px;
+  }
+  .investment-saving-value {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .investment-saving-value > span {
+    font-size: 9px;
+  }
+  .investment-saving-value > strong {
+    font-size: 29px;
+  }
+  .investment-domain {
+    padding: 19px;
+  }
+  .investment-total-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .investment-total-grid > div {
+    padding: 22px;
+  }
+  .investment-total-grid strong {
+    font-size: 27px;
+  }
+  .investment-total-grid p {
+    font-size: 12px;
+  }
+  .investment-disclosures {
+    margin-top: 20px;
+  }
+  .investment-disclosure summary {
+    font-size: 12px;
+    padding: 19px;
+  }
+  .investment-disclosure > div {
+    padding: 0 19px 21px;
+    font-size: 11px;
+  }
+  .investment-breakdown > div {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .security-plan-grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+  .security-plan-copy {
+    padding-top: 4px;
+  }
+  .security-plan-copy > h3 {
+    font-size: 33px;
+  }
+  .security-plan-copy > p {
+    font-size: 13px;
+  }
+  .security-preview-top {
+    padding: 18px 20px;
+  }
+  .security-preview > .tabs {
+    margin-inline: 20px;
+  }
+  .auth-preview-body {
+    padding: 26px 24px;
+    min-height: 400px;
+  }
+  .auth-preview-body h3 {
+    font-size: 27px;
+  }
+  .auth-preview-body input {
+    font-size: 24px;
+  }
+  .auth-demo-note {
+    padding: 17px 20px;
+  }
+  .security-protections {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .security-protections article {
+    padding: 23px;
+  }
+  .security-protections h4,
+  .cloud-info-grid h4 {
+    font-size: 16px;
+  }
+  .investment-note {
+    padding: 18px;
+    font-size: 10px;
+    gap: 12px;
+  }
+  .cloud-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 2px;
+  }
+  .cloud-heading h3 {
+    font-size: 29px;
+  }
+  .cloud-budget {
+    border-left: 0;
+    border-top: 1px solid #d3e2eb;
+    padding: 20px 0 0;
+  }
+  .cloud-budget strong {
+    font-size: 42px;
+  }
+  .cloud-table caption {
+    padding: 16px;
+    font-size: 10px;
+  }
+  .cloud-table th,
+  .cloud-table td {
+    padding: 16px 12px;
+    font-size: 11px;
+  }
+  .cloud-table th:nth-child(2),
+  .cloud-table td:nth-child(2) {
+    display: none;
+  }
+  .cloud-table th a {
+    gap: 5px;
+    line-height: 1.6;
+  }
+  .cloud-table th small {
+    font-size: 9px;
+    line-height: 1.7;
+  }
+  .cloud-table thead th {
+    font-size: 10px;
+  }
+  .cloud-table tfoot th {
+    line-height: 1.6;
+  }
+  .cloud-info-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 18px;
+  }
+  .cloud-info-grid article {
+    border-bottom: 1px solid #dfe9ef;
+  }
+}
+@media (max-width: 374px) {
+  .investment-section-heading .section-heading h2 {
+    font-size: 31px;
+  }
+  .investment-section .investment-tabs > button {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .investment-section .investment-tabs > button > svg {
+    width: 12px;
+    height: 12px;
+  }
+  .investment-main-card {
+    padding-inline: 20px;
+  }
+  .investment-price {
+    font-size: 47px;
+  }
+  .investment-saving-value {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

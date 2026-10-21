@@ -24,6 +24,14 @@ const steps = [
 ];
 const faq = [
   [
+    "A mensalidade já inclui a nuvem e a segurança?",
+    "A referência de R$2.490 por mês já inclui um orçamento de R$800 para infraestrutura, proteção e backups. A entrada é de R$7.900, com o restante do desenvolvimento distribuído em 48 meses. Tarifas bancárias, domínio e contas das lojas de aplicativos ficam separados. Consulte a seção Investimento para a composição e as condições.",
+  ],
+  [
+    "O portal e o aplicativo poderão usar dois fatores?",
+    "Sim. A proposta inclui senha mais código temporário de um aplicativo autenticador, com implantação prevista no web e nos aplicativos. Será obrigatório para administradores e funcionários e disponível aos associados. O fluxo mostrado nesta apresentação é apenas uma simulação.",
+  ],
+  [
     "O aplicativo terá o mesmo acesso do site?",
     "A proposta prevê uma conta por pessoa, com vínculo familiar e serviços compartilhados entre o portal e o aplicativo. Funcionários terão acessos próprios e permissões por função.",
   ],
