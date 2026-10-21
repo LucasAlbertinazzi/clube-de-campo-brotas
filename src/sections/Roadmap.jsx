@@ -44,6 +44,14 @@ const faq = [
     "Antes do evento, a equipe entra com seu acesso autorizado e baixa a lista atualizada no aparelho. Sem internet, o aplicativo consulta essa lista, bloqueia a repetição no mesmo celular e salva as entradas localmente. Quando a conexão voltar, os registros são sincronizados. Ingressos novos e cancelamentos posteriores ao download só serão conhecidos após atualizar a lista. A prévia desta página apenas simula esse fluxo com dados fictícios.",
   ],
   [
+    "Preciso baixar algo para usar o sistema online?",
+    "Não. O uso online é o padrão e funciona normalmente, tanto no aplicativo do associado quanto na portaria. Salvar o ingresso ou baixar a lista é opcional e prepara o aparelho para uma eventual falta de conexão. Sem internet, só estarão disponíveis os ingressos ou listas previamente salvos.",
+  ],
+  [
+    "O associado poderá mostrar o ingresso sem internet?",
+    "Sim. Antes do evento, com conexão, o associado poderá salvar um ingresso liberado no aplicativo. Depois, abrirá a cópia salva e mostrará o mesmo QR Code sem internet. A portaria poderá conferir esse QR online ou pela própria lista offline já preparada. Exibir a cópia não garante entrada: a validade é conferida pela portaria, e alterações posteriores ao salvamento só serão conhecidas após atualizar os dados. Esta página demonstra o fluxo com dados fictícios.",
+  ],
+  [
     "É possível usar vários celulares offline?",
     "Celulares desconectados não compartilham as leituras em tempo real. O plano operacional deverá usar um aparelho offline por evento ou dividir os ingressos em listas exclusivas por portaria/aparelho. Se o mesmo ingresso for aceito por aparelhos desconectados, a sincronização sinalizará o conflito para conferência, mas não desfará uma entrada que já aconteceu.",
   ],

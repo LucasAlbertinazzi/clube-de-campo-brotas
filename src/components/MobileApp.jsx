@@ -11,7 +11,7 @@ import {
   Status,
   asset,
 } from "./ui.jsx";
-import TicketCard from "./TicketCard.jsx";
+import MemberTickets from "./MemberTickets.jsx";
 import PaymentModal from "./PaymentModal.jsx";
 import ReservationModal from "./ReservationModal.jsx";
 import { FamilyView } from "./MemberPanel.jsx";
@@ -27,14 +27,7 @@ export default function MobileApp() {
   const { state, appPage, setAppPage } = useDemo();
   const [bill, setBill] = useState(null);
   const [event, setEvent] = useState(null);
-  const [selectedTicket, setSelectedTicket] = useState("CCB-DEMO-001");
   const [notices, setNotices] = useState(false);
-  const ticket =
-    state.tickets.find((item) => item.id === selectedTicket) ??
-    state.tickets[0];
-  const eventForTicket = state.events.find(
-    (item) => item.id === ticket?.eventId,
-  );
   return (
     <>
       <PhoneFrame
@@ -130,41 +123,7 @@ export default function MobileApp() {
               </p>
             </>
           )}
-          {appPage === "tickets" && (
-            <>
-              <h3>Meus ingressos</h3>
-              {state.tickets.length > 1 && (
-                <label className="sr-label">
-                  Escolha o ingresso
-                  <select
-                    className="ticket-select"
-                    value={ticket.id}
-                    onChange={(e) => setSelectedTicket(e.target.value)}
-                    aria-label="Escolher ingresso no aplicativo"
-                  >
-                    {state.tickets.map((item) => (
-                      <option value={item.id} key={item.id}>
-                        {item.name} ·{" "}
-                        {
-                          state.events.find((evt) => evt.id === item.eventId)
-                            ?.name
-                        }
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              )}
-              <TicketCard ticket={ticket} event={eventForTicket} compact />
-              <button
-                type="button"
-                className="text-button app-agenda-link"
-                onClick={() => setAppPage("home")}
-              >
-                Explorar a agenda
-                <Icon name="arrow" size={15} />
-              </button>
-            </>
-          )}
+          {appPage === "tickets" && <MemberTickets />}
           {appPage === "family" && (
             <>
               <h3>Minha família</h3>

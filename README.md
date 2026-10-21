@@ -29,6 +29,13 @@ pnpm build
 8. No menu **Investimento**, consulte implantação de R$7.900, mensalidade de R$2.490 por 48 meses, serviços incluídos e despesas separadas.
 9. Na aba **Segurança e 2FA**, alterne entre portal e aplicativo e simule senha → código → acesso. O código fictício é `123456`; não há autenticação real.
 10. Na portaria, clique em **Baixar lista do evento**, depois **Simular modo offline**. Uma leitura válida registra uma entrada pendente no aparelho; a repetição é bloqueada nessa lista. **Reconectar e sincronizar** reconcilia as entradas com a base local da demonstração e sinaliza conflitos.
+11. No aplicativo, em **Ingressos**, use **Salvar para usar offline** e depois **Simular offline**. A prévia mostra o mesmo QR Code usando apenas a cópia salva. Sem cópias, mostra uma orientação para voltar ao modo online.
+
+## Ingresso salvo pelo associado
+
+O uso online continua sendo o padrão, tanto para o associado quanto para a portaria. O salvamento é opcional: antes de ficar sem conexão, o associado poderá salvar um ingresso liberado no aplicativo e abrir o mesmo QR Code depois. A portaria poderá validar esse código online; se a própria portaria estiver offline, precisará ter preparado sua lista antes. Mostrar uma cópia não registra entrada nem garante autorização. Cancelamentos e alterações posteriores ao salvamento só serão conhecidos após atualização dos dados consultados.
+
+A prévia guarda as cópias fictícias em `ccb-member-tickets-demo-v1`, no `localStorage`. O modo **Simular offline** consulta somente essas cópias, sem buscar ingressos novos na base da demonstração; a atualização da página recupera as cópias e volta ao modo online. Uma cópia existente pode ser atualizada enquanto o ingresso estiver liberado. Falhas no armazenamento são mostradas ao usuário. A prévia não faz instalação nem cache completo da página para iniciar sem rede; o aplicativo final terá armazenamento protegido e recursos disponíveis no aparelho. As cópias da apresentação não são credenciais reais e não usam criptografia.
 
 ## Portaria offline
 
@@ -40,7 +47,7 @@ Esta apresentação não é um aplicativo instalado ou uma PWA para iniciar sem 
 
 ## Investimento e segurança
 
-Condições comerciais de referência em 21/10/2026: implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. O escopo contempla portaria pelo celular com QR Code online e contingência offline. A mensalidade contempla hospedagem, banco de dados, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial.
+Condições comerciais de referência em 21/10/2026: implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. O escopo contempla portaria pelo celular com QR Code online e contingência offline, além do ingresso salvo no aplicativo do associado em sua etapa de entrega. A mensalidade contempla hospedagem, banco de dados, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial.
 
 O domínio, tarifas bancárias, contas Apple/Google, celulares e internet da portaria ficam por conta do clube. Serviços e funcionalidades adicionais terão orçamento separado. Integração financeira, exportação cadastral, escopo, cronograma e condições contratuais devem ser confirmados antes do fechamento. A apresentação e os dados usados pelo frontend contêm apenas a proposta comercial, sem composição de custos operacionais.
 
@@ -62,7 +69,7 @@ As alterações ficam no `localStorage` do navegador. Para reiniciar os dados, r
 - `src/sections/`: seções da apresentação.
 - `src/components/`: prévias e componentes reutilizáveis.
 - `src/lib/`: estado e regras da demonstração.
-- `tests/`: testes de eventos, ingressos, pagamentos, restauração, condições comerciais e lista offline com sincronização e conflitos.
+- `tests/`: testes de eventos, ingressos, pagamentos, restauração, condições comerciais, cópias do associado e lista offline da portaria com sincronização e conflitos.
 - `public/assets/`: identidade e fotos do site público atual.
 - `.github/workflows/pages.yml`: testes, build e publicação no GitHub Pages.
 

@@ -12,8 +12,8 @@ export default function OfflineGateControls({ gate, eventId, onChange }) {
         <div>
           <h3>Portaria preparada para ficar offline.</h3>
           <p>
-            Baixe a lista antes do evento, leia sem internet e sincronize
-            depois.
+            Online funciona normalmente. Como opção de contingência, baixe a
+            lista antes do evento, leia sem internet e sincronize depois.
           </p>
         </div>
       </div>

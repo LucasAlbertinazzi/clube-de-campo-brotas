@@ -7,6 +7,8 @@ export default function TicketCard({
   event,
   compact = false,
   downloadable = false,
+  offlineCopy = false,
+  qrValue,
 }) {
   if (!ticket || !event)
     return (
@@ -17,12 +19,19 @@ export default function TicketCard({
     );
   return (
     <article className={`ticket-card ${compact ? "ticket-compact" : ""}`}>
-      <img
-        className="ticket-cover"
-        src={asset(event.image)}
-        alt="Paisagem do Clube de Campo de Brotas"
-        loading="lazy"
-      />
+      {offlineCopy ? (
+        <div className="ticket-offline-cover">
+          <Icon name="ticket" size={23} />
+          <span>INGRESSO SALVO NO APARELHO</span>
+        </div>
+      ) : (
+        <img
+          className="ticket-cover"
+          src={asset(event.image)}
+          alt="Paisagem do Clube de Campo de Brotas"
+          loading="lazy"
+        />
+      )}
       <div className="ticket-card-body">
         <p className="ticket-event-name">{event.name}</p>
         <p className="ticket-meta">
@@ -37,24 +46,28 @@ export default function TicketCard({
           <small>{ticket.category}</small>
         </div>
         <QrCode
-          value={ticketPayload(ticket)}
+          value={qrValue ?? ticketPayload(ticket)}
           label={`QR demonstrativo do ingresso ${ticket.id}`}
         />
         <span className="ticket-code">{ticket.id}</span>
         <Status
           tone={
-            ticket.status === "used"
-              ? "amber"
-              : ticket.status === "cancelled"
-                ? "red"
-                : "green"
+            offlineCopy
+              ? "blue"
+              : ticket.status === "used"
+                ? "amber"
+                : ticket.status === "cancelled"
+                  ? "red"
+                  : "green"
           }
         >
-          {ticket.status === "used"
-            ? "Entrada já registrada"
-            : ticket.status === "cancelled"
-              ? "Ingresso cancelado"
-              : "Disponível para entrada"}
+          {offlineCopy
+            ? "Cópia offline · Validação na portaria"
+            : ticket.status === "used"
+              ? "Entrada já registrada"
+              : ticket.status === "cancelled"
+                ? "Ingresso cancelado"
+                : "Disponível para entrada"}
         </Status>
         {downloadable && (
           <Button

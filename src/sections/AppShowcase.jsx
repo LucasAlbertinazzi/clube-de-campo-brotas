@@ -5,7 +5,7 @@ import MobileApp, { appNavigation } from "../components/MobileApp.jsx";
 const descriptions = {
   home: "Notícias e próximos encontros em uma tela simples.",
   bills: "Consulte mensalidades e experimente as formas de pagamento.",
-  tickets: "Seu ingresso disponível para apresentar na entrada.",
+  tickets: "Consulte online ou salve o QR Code para apresentar sem internet.",
   family: "Titular e dependentes vinculados ao mesmo acesso familiar.",
 };
 export default function AppShowcase() {
@@ -41,6 +41,17 @@ export default function AppShowcase() {
                 <Icon name="next" size={18} />
               </button>
             ))}
+          </div>
+          <div className="app-offline-benefit">
+            <Icon name="download" size={27} />
+            <div>
+              <h3>Seu QR Code, mesmo sem sinal.</h3>
+              <p>
+                Online funciona normalmente. Salvar é opcional: antes do evento,
+                o associado pode guardar o ingresso no aplicativo e mostrar o
+                mesmo QR Code sem internet. A portaria confirma a validade.
+              </p>
+            </div>
           </div>
         </div>
         <div className="app-device-column">

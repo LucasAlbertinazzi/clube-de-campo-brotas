@@ -6,7 +6,7 @@ const scope = [
   "Associados, dependentes e administração",
   "Consulta e integração de pagamentos",
   "Eventos, ingressos e portaria online e offline pelo celular",
-  "Aplicativo Android e iOS em uma etapa posterior",
+  "Aplicativo Android e iOS com ingresso offline, em uma etapa posterior",
   `Manutenção e até ${proposal.supportHours} horas de atendimento por mês`,
 ];
 const services = [
@@ -165,7 +165,8 @@ export default function InvestmentPlan() {
             <li>
               <strong>Entrega em etapas:</strong> site, portal, administração e
               ingressos com QR Code primeiro. Os aplicativos Android e iOS
-              entram em uma etapa posterior do mesmo escopo.
+              entram em uma etapa posterior do mesmo escopo, incluindo a opção
+              de salvar o ingresso para apresentar sem internet.
             </li>
             <li>
               <strong>Atendimento:</strong> até {proposal.supportHours} horas
