@@ -17,12 +17,19 @@ export default function Gate() {
   const [result, setResult] = useState(ready);
   const [code, setCode] = useState("CCB-DEMO-001");
   const [camera, setCamera] = useState(false);
-  const event = state.events.find((item) => item.id === eventId);
   const ticket =
     state.tickets.find((item) => item.eventId === eventId) ?? state.tickets[0];
   const read = (value) => {
     setCamera(false);
-    setResult(actions.scan(value, eventId));
+    const outcome = actions.scan(value, eventId);
+    setResult(outcome);
+    setScenario(
+      outcome.status === "authorized"
+        ? "valid"
+        : outcome.status === "used"
+          ? "used"
+          : "invalid",
+    );
   };
   const simulate = (value) => {
     setScenario(value);
