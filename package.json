@@ -1,0 +1,26 @@
+{
+  "name": "clube-de-campo-brotas-apresentacao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs",
+    "format:check": "prettier --check src tests package.json vite.config.js index.html .github/workflows/pages.yml README.md"
+  },
+  "dependencies": {
+    "jsqr": "^1.4.0",
+    "lucide-react": "^1.60.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "prettier": "^3.9.10",
+    "vite": "^8.3.4"
+  }
+}
