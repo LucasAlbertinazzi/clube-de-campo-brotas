@@ -13,11 +13,11 @@ const protections = [
   {
     icon: "shield",
     title: "Criptografia no caminho e no banco",
-    text: "HTTPS/TLS no site e nos aplicativos. Banco gerenciado com criptografia dos dados armazenados e acesso restrito aos serviços autorizados.",
+    text: "HTTPS/TLS no web e, se contratado, no aplicativo. Banco gerenciado com criptografia dos dados armazenados e acesso restrito aos serviços autorizados.",
   },
   {
     icon: "phone",
-    title: "Dois fatores no web e no app",
+    title: "Dois fatores no web e no app opcional",
     text: "Senha mais código temporário de aplicativo autenticador. Previsto como obrigatório para administradores e funcionários, e disponível aos associados.",
   },
   {
@@ -51,7 +51,7 @@ function SecurityPlan() {
           <h3>
             Uma conta segura.
             <br />
-            No site e no aplicativo.
+            No web e no app opcional.
           </h3>
           <p>
             A autenticação em dois fatores acrescenta uma confirmação depois da
@@ -63,7 +63,10 @@ function SecurityPlan() {
               <span>01</span>
               <div>
                 <strong>Entre com sua conta</strong>
-                <p>A mesma identidade conecta portal e aplicativo.</p>
+                <p>
+                  A mesma identidade conecta o portal ao aplicativo, se
+                  contratado.
+                </p>
               </div>
             </li>
             <li>
@@ -133,7 +136,7 @@ export default function Investment() {
                   Um investimento previsível.
                 </>
               }
-              description="Valores, escopo e proteção para colocar a proposta em prática."
+              description="Pacote web com valores mantidos e aplicativo opcional com investimento próprio."
             />
           </div>
           <span className="investment-reference">

@@ -1,39 +1,30 @@
 import { Brand, Icon, SectionHeading } from "../components/ui.jsx";
+import DeliverySchedule from "../components/DeliverySchedule.jsx";
+import {
+  proposal,
+  mobileProposal,
+  wholeMoney,
+  webDelivery,
+  mobileDelivery,
+} from "../lib/pricing.mjs";
+import "./delivery.css";
 
-const steps = [
-  {
-    icon: "file",
-    title: "Identidade e conteúdo",
-    text: "Site, eventos, fotos e documentos.",
-  },
-  {
-    icon: "users",
-    title: "Associados e administração",
-    text: "Famílias, cobranças e acessos.",
-  },
-  {
-    icon: "calendar",
-    title: "Eventos e portaria",
-    text: "QR Code online/offline e teste piloto.",
-  },
-  {
-    icon: "phone",
-    title: "Aplicativo e publicação",
-    text: "Android, iOS e treinamento.",
-  },
-];
 const faq = [
   [
     "A mensalidade já inclui a nuvem e a segurança?",
-    "Sim. A mensalidade de R$2.490 inclui hospedagem, banco de dados, proteção, backups e manutenção. A implantação é de R$7.900, com contratação por 48 meses. Domínio, tarifas bancárias e contas das lojas de aplicativos ficam separados. Consulte a seção Investimento para conhecer o escopo e as condições.",
+    `Sim. O pacote web mantém implantação de ${wholeMoney(proposal.implementationCents)} e mensalidade de ${wholeMoney(proposal.monthlyCents)} por ${proposal.termMonths} meses, com hospedagem, banco de dados, proteção, backups e manutenção. O aplicativo do associado não está incluído. Domínio e tarifas bancárias são separados.`,
+  ],
+  [
+    "Preciso contratar o aplicativo junto com o web?",
+    `Não. O clube pode contratar somente o site, o portal, o painel e a portaria web. Android/iOS é opcional, após implantação e aceite web e contratação própria. A proposta separada é ${wholeMoney(mobileProposal.developmentCents)} de desenvolvimento e ${wholeMoney(mobileProposal.monthlyCents)}/mês de manutenção adicional após lançamento e aceite.`,
   ],
   [
     "O portal e o aplicativo poderão usar dois fatores?",
-    "Sim. A proposta inclui senha mais código temporário de um aplicativo autenticador, com implantação prevista no web e nos aplicativos. Será obrigatório para administradores e funcionários e disponível aos associados. O fluxo mostrado nesta apresentação é apenas uma simulação.",
+    "Sim. O pacote web prevê senha mais código temporário de um aplicativo autenticador, obrigatório para administradores e funcionários e disponível aos associados. O aplicativo seguirá a mesma identidade se contratado. O fluxo mostrado nesta apresentação é apenas uma simulação.",
   ],
   [
     "O aplicativo terá o mesmo acesso do site?",
-    "A proposta prevê uma conta por pessoa, com vínculo familiar e serviços compartilhados entre o portal e o aplicativo. Funcionários terão acessos próprios e permissões por função.",
+    "Se contratado, o aplicativo usará a mesma conta e os serviços do portal. A proposta prevê uma conta por pessoa, com vínculo familiar. Funcionários terão acessos próprios e permissões por função.",
   ],
   [
     "É necessário um computador na portaria?",
@@ -41,7 +32,7 @@ const faq = [
   ],
   [
     "Como a portaria funcionará sem internet?",
-    "Antes do evento, a equipe entra com seu acesso autorizado e baixa a lista atualizada no aparelho. Sem internet, o aplicativo consulta essa lista, bloqueia a repetição no mesmo celular e salva as entradas localmente. Quando a conexão voltar, os registros são sincronizados. Ingressos novos e cancelamentos posteriores ao download só serão conhecidos após atualizar a lista. A prévia desta página apenas simula esse fluxo com dados fictícios.",
+    "A portaria online/offline pertence ao pacote web e não depende da contratação do app do associado. Antes do evento, a equipe baixa a lista atualizada no cliente de portaria preparado no aparelho. Sem internet, ele consulta essa lista, bloqueia repetição no mesmo celular e salva as entradas. Ao reconectar, sincroniza os registros. Ingressos novos e cancelamentos posteriores ao download exigem atualização. Esta página apenas simula o fluxo.",
   ],
   [
     "Preciso baixar algo para usar o sistema online?",
@@ -49,7 +40,7 @@ const faq = [
   ],
   [
     "O associado poderá mostrar o ingresso sem internet?",
-    "Sim. Antes do evento, com conexão, o associado poderá salvar um ingresso liberado no aplicativo. Depois, abrirá a cópia salva e mostrará o mesmo QR Code sem internet. A portaria poderá conferir esse QR online ou pela própria lista offline já preparada. Exibir a cópia não garante entrada: a validade é conferida pela portaria, e alterações posteriores ao salvamento só serão conhecidas após atualizar os dados. Esta página demonstra o fluxo com dados fictícios.",
+    "Esse recurso faz parte do aplicativo opcional. Se contratado, o associado poderá salvar um ingresso liberado com conexão e mostrar o mesmo QR sem internet. A portaria poderá conferir esse QR online ou pela lista offline já preparada. Exibir a cópia não garante entrada: a validade é conferida pela portaria. Alterações posteriores ao salvamento só serão conhecidas após atualizar os dados. A página demonstra o fluxo com dados fictícios.",
   ],
   [
     "É possível usar vários celulares offline?",
@@ -77,22 +68,28 @@ export default function Roadmap() {
       >
         <div className="container">
           <SectionHeading
-            title="Uma implantação em etapas."
-            description="Começar com o essencial e validar com quem usa o clube todos os dias."
+            title="Primeiro o web. Depois, o app se o clube escolher."
+            description="Dois cronogramas e duas contratações. Prazos estimados em dias corridos, com desenvolvimento, testes e implantação em cada etapa."
           />
-          <ol className="roadmap">
-            {steps.map((step, index) => (
-              <li key={step.title}>
-                <div className="roadmap-top">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <Icon name={step.icon} size={27} />
-                  {index < 3 && <Icon name="arrow" size={21} />}
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="delivery-grid">
+            <DeliverySchedule
+              title="Site, portal e painel web"
+              label="01 · PACOTE WEB"
+              stages={webDelivery}
+            />
+            <DeliverySchedule
+              title="Aplicativo Android e iOS"
+              label="02 · OPCIONAL, APÓS O WEB"
+              stages={mobileDelivery}
+              mobile
+            />
+          </div>
+          <p className="delivery-assumptions">
+            As estimativas incluem desenvolvimento e homologação conforme o
+            escopo apresentado. Dependências de integrações, exportação de dados
+            e retornos do clube serão confirmadas no levantamento. O app não
+            condiciona a entrada do web em produção.
+          </p>
         </div>
       </section>
       <section className="faq-section">
@@ -138,6 +135,8 @@ export default function Roadmap() {
             <span>
               Apresentação independente. Este não é o portal oficial do clube.
             </span>
+            <br />
+            <span>Desenvolvido pela Nevuma Tech</span>
           </p>
           <div>
             <a

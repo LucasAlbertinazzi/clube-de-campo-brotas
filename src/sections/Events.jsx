@@ -24,7 +24,7 @@ export default function Events() {
               },
               {
                 title: "Publique para os associados",
-                text: "O evento aparece no site e no aplicativo.",
+                text: "O evento aparece no portal e, se contratado, no aplicativo.",
               },
               {
                 title: "Acompanhe as entradas",

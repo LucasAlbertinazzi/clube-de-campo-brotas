@@ -4649,6 +4649,12 @@ button {
   }
 }
 @media (max-width: 374px) {
+  .experience-tabs > button {
+    min-width: 0;
+    white-space: normal;
+    flex: 1;
+    flex-direction: column;
+  }
   .container {
     width: calc(100% - 32px);
   }

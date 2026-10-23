@@ -1,5 +1,20 @@
 # Clube de Campo de Brotas — apresentação interativa
 
+Desenvolvido pela Nevuma Tech.
+
+## Proposta comercial de 23/10/2026
+
+Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram mantidos por orientação do responsável; os prazos e a oferta mobile abaixo compõem a revisão autorizada para publicação em 23/10/2026. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
+
+| Oferta                              | Desenvolvimento / implantação | Manutenção                                     | Prazo proposto                                                 |
+| ----------------------------------- | ----------------------------- | ---------------------------------------------- | -------------------------------------------------------------- |
+| Site, portal, painel e portaria web | R$ 7.900                      | R$ 2.490/mês por 48 meses                      | 120 dias corridos até entrada em produção                      |
+| App Android/iOS opcional            | R$ 9.900                      | R$ 490/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
+
+O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web é suficiente para usar site, portal, painel e portaria online/offline. O desenvolvimento do app, ingresso salvo no app e notificações mobile não pertencem ao pacote web. A vigência e o suporte do app serão definidos no contrato próprio.
+
+As estimativas pressupõem escopo aprovado e disponibilização de conteúdo, dados e acessos. A cobrança web começa após implantação e aceite; a adicional mobile, após lançamento e aceite. As condições serão formalizadas em contrato. A implantação pública do app depende da aprovação das lojas e do aceite do clube.
+
 Proposta navegável para o futuro site, portal do associado, aplicativo Android/iOS, administração de eventos e portaria com QR Code online e contingência offline.
 
 **Apresentação:** https://lucasalbertinazzi.github.io/clube-de-campo-brotas/
@@ -27,7 +42,7 @@ pnpm build
 6. **Ativar câmera** solicita autorização do dispositivo e lê os QR demonstrativos com a câmera traseira, quando disponível. O vídeo é processado localmente e os recursos da câmera são encerrados ao parar, sair da tela ou concluir a leitura.
 7. Experimente pagamentos simulados, alteração de nomes fictícios, publicações e atendimento.
 8. No menu **Investimento**, consulte implantação de R$7.900, mensalidade de R$2.490 por 48 meses, serviços incluídos e despesas separadas.
-9. Na aba **Segurança e 2FA**, alterne entre portal e aplicativo e simule senha → código → acesso. O código fictício é `123456`; não há autenticação real.
+9. Na aba **Segurança e 2FA**, alterne entre portal e aplicativo opcional e simule senha → código → acesso. O código fictício é `123456`; não há autenticação real.
 10. Na portaria, clique em **Baixar lista do evento**, depois **Simular modo offline**. Uma leitura válida registra uma entrada pendente no aparelho; a repetição é bloqueada nessa lista. **Reconectar e sincronizar** reconcilia as entradas com a base local da demonstração e sinaliza conflitos.
 11. No aplicativo, em **Ingressos**, use **Salvar para usar offline** e depois **Simular offline**. A prévia mostra o mesmo QR Code usando apenas a cópia salva. Sem cópias, mostra uma orientação para voltar ao modo online.
 
@@ -47,7 +62,7 @@ Esta apresentação não é um aplicativo instalado ou uma PWA para iniciar sem 
 
 ## Investimento e segurança
 
-Condições comerciais de referência em 21/10/2026: implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. O escopo contempla portaria pelo celular com QR Code online e contingência offline, além do ingresso salvo no aplicativo do associado em sua etapa de entrega. A mensalidade contempla hospedagem, banco de dados, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial.
+Condições da proposta em 23/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. Contempla portaria pelo celular com QR Code online e contingência offline. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
 
 O domínio, tarifas bancárias, contas Apple/Google, celulares e internet da portaria ficam por conta do clube. Serviços e funcionalidades adicionais terão orçamento separado. Integração financeira, exportação cadastral, escopo, cronograma e condições contratuais devem ser confirmados antes do fechamento. A apresentação e os dados usados pelo frontend contêm apenas a proposta comercial, sem composição de custos operacionais.
 

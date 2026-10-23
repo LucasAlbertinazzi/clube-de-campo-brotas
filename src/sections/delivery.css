@@ -1,0 +1,219 @@
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+.delivery-card {
+  min-width: 0;
+  padding: clamp(23px, 3vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+}
+.delivery-card-mobile {
+  background: var(--pale);
+}
+.delivery-card h3 {
+  margin-top: 12px;
+  font-size: 27px;
+}
+.delivery-total {
+  margin-top: 22px;
+  font-size: 54px;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  color: var(--blue);
+  line-height: 1.2;
+}
+.delivery-total span {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.delivery-result {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  min-height: 44px;
+}
+.delivery-stages {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+}
+.delivery-stages li {
+  display: grid;
+  grid-template-columns: 83px minmax(0, 1fr) auto;
+  gap: 13px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.delivery-stages li > span {
+  font-size: 10px;
+  padding-top: 3px;
+  color: var(--blue);
+  font-weight: 650;
+}
+.delivery-stages h4 {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.delivery-stages p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.delivery-stages strong {
+  padding-top: 3px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.delivery-start {
+  display: flex;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #eaf4f8;
+  font-size: 11px;
+  color: var(--navy);
+}
+.delivery-start svg {
+  color: var(--blue);
+  margin-top: 3px;
+}
+.delivery-assumptions {
+  margin-top: 23px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.package-deadline {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.package-deadline svg {
+  margin-top: 2px;
+}
+.mobile-offer {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 4vw, 55px);
+  margin-top: 28px;
+  padding: clamp(24px, 3vw, 38px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.mobile-offer h3 {
+  margin-top: 12px;
+  font-size: 29px;
+}
+.mobile-offer-copy > p {
+  margin-top: 15px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.mobile-offer-copy ul {
+  padding-left: 18px;
+  margin: 21px 0;
+  display: grid;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.proposal-status {
+  display: inline-block;
+  color: #71521a;
+  background: #fbf2df;
+  border-radius: 6px;
+  padding: 8px 11px;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+.mobile-offer-terms dl {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0;
+}
+.mobile-offer-terms dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.mobile-offer-terms dt {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.mobile-offer-terms dd {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+}
+.mobile-offer-terms small {
+  font-size: 11px;
+  font-weight: 450;
+  letter-spacing: 0;
+}
+.mobile-offer-terms > p {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.mobile-offer-terms strong {
+  color: var(--navy);
+}
+.app-optional-label {
+  display: block;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+@media (max-width: 1000px) {
+  .delivery-grid {
+    grid-template-columns: 1fr;
+  }
+  .delivery-result {
+    min-height: 0;
+  }
+}
+@media (max-width: 760px) {
+  .mobile-offer {
+    grid-template-columns: 1fr;
+  }
+  .mobile-offer-terms dd {
+    font-size: 23px;
+  }
+  .delivery-stages li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 5px 14px;
+  }
+  .delivery-stages li > span {
+    grid-column: 1 / -1;
+  }
+  .delivery-card h3 {
+    font-size: 25px;
+  }
+  .delivery-total {
+    font-size: 48px;
+  }
+  .mobile-offer-terms small {
+    display: block;
+  }
+}

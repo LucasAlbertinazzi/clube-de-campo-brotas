@@ -19,9 +19,10 @@ export default function Hero() {
               <span>Menos distância.</span>
             </h1>
             <p>
-              Site, aplicativo e serviços do associado conectados. Da notícia ao
+              Site, portal do associado e painel web conectados. Da notícia ao
               ingresso, uma experiência mais simples para quem faz parte do
-              clube.
+              clube. Aplicativo Android e iOS como evolução opcional, com
+              contratação separada.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#experiencias">

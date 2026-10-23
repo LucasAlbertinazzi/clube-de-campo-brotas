@@ -14,6 +14,9 @@ export default function AppShowcase() {
     <section className="section app-section section-anchor" id="aplicativo">
       <div className="container app-layout">
         <div className="app-section-copy">
+          <span className="app-optional-label">
+            EVOLUÇÃO OPCIONAL · FORA DO PACOTE WEB
+          </span>
           <h2>
             O clube no
             <br />
@@ -21,6 +24,8 @@ export default function AppShowcase() {
           </h2>
           <p>
             A família, as mensalidades e os próximos encontros sempre por perto.
+            Android e iOS com contratação, investimento e prazo próprios, após a
+            entrega web.
           </p>
           <div className="app-feature-list" aria-label="Telas do aplicativo">
             {appNavigation.map((item) => (
@@ -57,7 +62,8 @@ export default function AppShowcase() {
         <div className="app-device-column">
           <MobileApp />
           <p className="device-caption">
-            Prévia do aplicativo Android e iOS · Dados fictícios
+            Prévia opcional Android e iOS · Contratação separada · Dados
+            fictícios
           </p>
         </div>
       </div>

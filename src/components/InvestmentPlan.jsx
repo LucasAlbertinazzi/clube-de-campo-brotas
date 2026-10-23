@@ -1,19 +1,26 @@
 import { Icon } from "./ui.jsx";
-import { proposal, wholeMoney } from "../lib/pricing.mjs";
+import {
+  proposal,
+  mobileProposal,
+  recurringTotal,
+  wholeMoney,
+  webDelivery,
+  mobileDelivery,
+  deliveryDays,
+} from "../lib/pricing.mjs";
 
 const scope = [
   "Site, notícias, fotos e documentos",
   "Associados, dependentes e administração",
   "Consulta e integração de pagamentos",
   "Eventos, ingressos e portaria online e offline pelo celular",
-  "Aplicativo Android e iOS com ingresso offline, em uma etapa posterior",
   `Manutenção e até ${proposal.supportHours} horas de atendimento por mês`,
 ];
 const services = [
   {
     icon: "dashboard",
     title: "Hospedagem e banco de dados",
-    text: "Estrutura em nuvem para o site, o portal e os aplicativos.",
+    text: "Estrutura em nuvem para o site, o portal e o painel web.",
   },
   {
     icon: "shield",
@@ -50,15 +57,15 @@ export default function InvestmentPlan() {
       <div className="investment-plan-grid">
         <article className="investment-main-card">
           <div className="investment-card-label">
-            <span>PLATAFORMA UNIFICADA</span>
-            <span>Web + aplicativo</span>
+            <span>PACOTE WEB</span>
+            <span>Site + portal + painel</span>
           </div>
           <p className="investment-price">
             {wholeMoney(proposal.monthlyCents)}
             <span>/ mês</span>
           </p>
           <p className="investment-price-description">
-            Uma mensalidade para conectar a experiência do clube.
+            A plataforma web completa. Aplicativo contratado separadamente.
           </p>
           <div className="investment-entry">
             <div>
@@ -70,6 +77,11 @@ export default function InvestmentPlan() {
               <strong>{proposal.termMonths} meses</strong>
             </div>
           </div>
+          <p className="package-deadline">
+            <Icon name="clock" size={18} />
+            Prazo proposto: {deliveryDays(webDelivery)} dias corridos até a
+            implantação web.
+          </p>
           <ul className="investment-scope">
             {scope.map((item) => (
               <li key={item}>
@@ -85,7 +97,7 @@ export default function InvestmentPlan() {
                 Hospedagem, manutenção, backups e segurança incluídos na
                 mensalidade.
               </strong>{" "}
-              Uma operação integrada para o clube e seus associados.
+              O aplicativo Android/iOS não está incluído neste pacote.
             </span>
           </p>
         </article>
@@ -126,6 +138,75 @@ export default function InvestmentPlan() {
           </div>
         </div>
       </div>
+      <article className="mobile-offer" aria-labelledby="mobile-offer-title">
+        <div className="mobile-offer-copy">
+          <span className="investment-eyebrow">
+            OPCIONAL · CONTRATAÇÃO SEPARADA
+          </span>
+          <h3 id="mobile-offer-title">Aplicativo Android e iOS</h3>
+          <p>
+            A prévia continua na apresentação para mostrar a evolução possível.
+            O clube pode contratar somente a plataforma web.
+          </p>
+          <ul>
+            <li>
+              Conta do associado, família, cobranças e eventos integrados ao
+              web.
+            </li>
+            <li>
+              Notificações e ingresso salvo para mostrar o QR Code sem internet.
+            </li>
+            <li>
+              Desenvolvimento iniciado após a implantação e o aceite web,
+              mediante contratação específica.
+            </li>
+          </ul>
+          <a className="text-button" href="#aplicativo">
+            Explorar a prévia do aplicativo <Icon name="arrow" size={17} />
+          </a>
+        </div>
+        <div className="mobile-offer-terms">
+          <span className="proposal-status">
+            Proposta comercial · contratação separada
+          </span>
+          <dl>
+            <div>
+              <dt>Desenvolvimento e implantação do app</dt>
+              <dd>{wholeMoney(mobileProposal.developmentCents)}</dd>
+            </div>
+            <div>
+              <dt>Manutenção adicional após o lançamento</dt>
+              <dd>
+                {wholeMoney(mobileProposal.monthlyCents)}
+                <small> / mês</small>
+              </dd>
+            </div>
+            <div>
+              <dt>Desenvolvimento, testes e envio às lojas</dt>
+              <dd>
+                {deliveryDays(mobileDelivery)} dias<small> corridos</small>
+              </dd>
+            </div>
+          </dl>
+          <p>
+            A análise das lojas é adicional aos {deliveryDays(mobileDelivery)}{" "}
+            dias. A implantação pública acontece após aprovação e liberação do
+            clube.
+          </p>
+          <p>
+            A manutenção contempla correções, compatibilidade com Android/iOS e
+            atualizações nas lojas. Taxas Apple/Google são separadas; vigência e
+            suporte do app serão definidos na contratação.
+          </p>
+          <p>
+            <strong>
+              Web + app, se contratado:{" "}
+              {wholeMoney(recurringTotal({ includeMobile: true }))}/mês.
+            </strong>{" "}
+            O adicional do app começa após seu lançamento e aceite.
+          </p>
+        </div>
+      </article>
       <div className="investment-disclosures">
         <Disclosure title="Despesas separadas">
           <ul className="investment-conditions">
@@ -140,7 +221,7 @@ export default function InvestmentPlan() {
             <li>
               <strong>Lojas de aplicativos:</strong> contas e taxas de
               publicação da Apple e do Google Play, em nome do clube, na etapa
-              de lançamento dos aplicativos.
+              de lançamento do aplicativo, somente se contratado.
             </li>
             <li>
               <strong>Portaria:</strong> celulares e internet para preparar as
@@ -163,10 +244,23 @@ export default function InvestmentPlan() {
               meses.
             </li>
             <li>
-              <strong>Entrega em etapas:</strong> site, portal, administração e
-              ingressos com QR Code primeiro. Os aplicativos Android e iOS
-              entram em uma etapa posterior do mesmo escopo, incluindo a opção
-              de salvar o ingresso para apresentar sem internet.
+              <strong>Dois escopos independentes:</strong> o pacote web inclui
+              site, portal, administração e portaria com QR Code online/offline.
+              O aplicativo do associado é opcional, tem preço próprio e só
+              começa após o aceite web e contratação específica.
+            </li>
+            <li>
+              <strong>Início dos prazos:</strong> contagem após contratação,
+              escopo aprovado e disponibilização dos conteúdos, dados e acessos
+              necessários. A etapa mobile também depende da implantação e do
+              aceite web. Prazos propostos sujeitos à validação das integrações
+              no levantamento.
+            </li>
+            <li>
+              <strong>Mensalidades:</strong> a cobrança web começa após
+              implantação e aceite da plataforma. O adicional mobile começa após
+              lançamento e aceite do app, somente se contratado. Datas e
+              condições serão formalizadas em contrato.
             </li>
             <li>
               <strong>Atendimento:</strong> até {proposal.supportHours} horas
