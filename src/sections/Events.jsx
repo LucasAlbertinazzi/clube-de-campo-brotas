@@ -23,8 +23,8 @@ export default function Events() {
                 text: "Configure valores e limite de participantes.",
               },
               {
-                title: "Publique para os associados",
-                text: "O evento aparece no portal e, se contratado, no aplicativo.",
+                title: "Escolha quem pode comprar",
+                text: "Defina eventos exclusivos ou abertos a não sócios, no site e no app opcional.",
               },
               {
                 title: "Acompanhe as entradas",

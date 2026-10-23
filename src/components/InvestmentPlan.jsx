@@ -14,6 +14,7 @@ const scope = [
   "Associados, dependentes e administração",
   "Consulta e integração de pagamentos",
   "Eventos, ingressos e portaria online e offline pelo celular",
+  "Login de não sócios e compra de ingressos em eventos abertos",
   `Manutenção e até ${proposal.supportHours} horas de atendimento por mês`,
 ];
 const services = [
@@ -150,8 +151,9 @@ export default function InvestmentPlan() {
           </p>
           <ul>
             <li>
-              Conta do associado, família, cobranças e eventos integrados ao
-              web.
+              Áreas de associado e não sócio no mesmo app, integradas ao web.
+              Família e cobranças para associados; eventos, compras e ingressos
+              para visitantes.
             </li>
             <li>
               Notificações e ingresso salvo para mostrar o QR Code sem internet.

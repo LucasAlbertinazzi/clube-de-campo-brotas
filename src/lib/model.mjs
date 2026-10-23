@@ -32,6 +32,7 @@ export function createInitialState() {
     events: [
       {
         id: "verao",
+        audience: "public",
         name: "Encontro de Verão",
         date: "2026-12-12",
         time: "18:00",
@@ -47,6 +48,7 @@ export function createInitialState() {
       },
       {
         id: "familia",
+        audience: "public",
         name: "Domingo em Família",
         date: "2026-12-20",
         time: "09:00",
@@ -62,6 +64,7 @@ export function createInitialState() {
       },
       {
         id: "tenis",
+        audience: "members",
         name: "Encontro de Tênis",
         date: "2027-01-17",
         time: "08:00",
@@ -152,7 +155,18 @@ export function restoreState(raw) {
       )
     )
       return createInitialState();
-    return parsed;
+    const defaults = createInitialState().events;
+    return {
+      ...parsed,
+      events: parsed.events.map((event) => ({
+        ...event,
+        audience:
+          event.audience === "public" || event.audience === "members"
+            ? event.audience
+            : (defaults.find((item) => item.id === event.id)?.audience ??
+              "members"),
+      })),
+    };
   } catch {
     return createInitialState();
   }
@@ -189,6 +203,7 @@ export function createEvent(state, input, id = `evento-${Date.now()}`) {
     capacity: Number(input.capacity),
     memberPrice: Number(input.memberPrice),
     guestPrice: Number(input.guestPrice),
+    audience: input.audience === "public" ? "public" : "members",
     status: input.status === "draft" ? "draft" : "published",
     category: "Social",
     image: "clube-paisagem.jpeg",
@@ -224,7 +239,7 @@ export function createEvent(state, input, id = `evento-${Date.now()}`) {
   return { state: { ...state, events: [event, ...state.events] }, event };
 }
 
-function reserveTicket(
+export function reserveTicket(
   state,
   event,
   person,

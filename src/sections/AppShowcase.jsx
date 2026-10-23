@@ -1,5 +1,5 @@
 import { useDemo } from "../lib/DemoContext.jsx";
-import { Icon } from "../components/ui.jsx";
+import { Icon, Tabs } from "../components/ui.jsx";
 import MobileApp, { appNavigation } from "../components/MobileApp.jsx";
 
 const descriptions = {
@@ -9,7 +9,7 @@ const descriptions = {
   family: "Titular e dependentes vinculados ao mesmo acesso familiar.",
 };
 export default function AppShowcase() {
-  const { appPage, setAppPage } = useDemo();
+  const { appPage, setAppPage, appAudience, setAppAudience } = useDemo();
   return (
     <section className="section app-section section-anchor" id="aplicativo">
       <div className="container app-layout">
@@ -23,30 +23,61 @@ export default function AppShowcase() {
             seu bolso.
           </h2>
           <p>
-            A família, as mensalidades e os próximos encontros sempre por perto.
+            Um aplicativo com áreas distintas para associados e não sócios.
             Android e iOS com contratação, investimento e prazo próprios, após a
             entrega web.
           </p>
-          <div className="app-feature-list" aria-label="Telas do aplicativo">
-            {appNavigation.map((item) => (
-              <button
-                type="button"
-                key={item.id}
-                className={appPage === item.id ? "is-active" : ""}
-                aria-pressed={appPage === item.id}
-                onClick={() => setAppPage(item.id)}
-              >
-                <Icon name={item.icon} size={28} />
-                <span>
-                  <strong>{item.label}</strong>
-                  {appPage === item.id && (
-                    <small>{descriptions[item.id]}</small>
-                  )}
-                </span>
-                <Icon name="next" size={18} />
-              </button>
-            ))}
-          </div>
+          <Tabs
+            className="app-audience-tabs"
+            label="Perfil da prévia do aplicativo"
+            items={[
+              { id: "member", label: "Sou associado", icon: "users" },
+              { id: "visitor", label: "Não sou sócio", icon: "ticket" },
+            ]}
+            value={appAudience}
+            onChange={setAppAudience}
+          />
+          {appAudience === "member" ? (
+            <div className="app-feature-list" aria-label="Telas do aplicativo">
+              {appNavigation.map((item) => (
+                <button
+                  type="button"
+                  key={item.id}
+                  className={appPage === item.id ? "is-active" : ""}
+                  aria-pressed={appPage === item.id}
+                  onClick={() => setAppPage(item.id)}
+                >
+                  <Icon name={item.icon} size={28} />
+                  <span>
+                    <strong>{item.label}</strong>
+                    {appPage === item.id && (
+                      <small>{descriptions[item.id]}</small>
+                    )}
+                  </span>
+                  <Icon name="next" size={18} />
+                </button>
+              ))}
+            </div>
+          ) : (
+            <ul className="visitor-app-features">
+              <li>
+                <Icon name="users" />
+                Login e cadastro próprios para não sócios.
+              </li>
+              <li>
+                <Icon name="calendar" />
+                Eventos abertos e preço de não sócio.
+              </li>
+              <li>
+                <Icon name="ticket" />
+                Compra, pagamento simulado e ingresso com QR Code.
+              </li>
+              <li>
+                <Icon name="shield" />
+                Somente compras e ingressos da própria conta.
+              </li>
+            </ul>
+          )}
           <div className="app-offline-benefit">
             <Icon name="download" size={27} />
             <div>
@@ -62,8 +93,7 @@ export default function AppShowcase() {
         <div className="app-device-column">
           <MobileApp />
           <p className="device-caption">
-            Prévia opcional Android e iOS · Contratação separada · Dados
-            fictícios
+            Um app · Dois perfis · Contratação opcional · Dados fictícios
           </p>
         </div>
       </div>

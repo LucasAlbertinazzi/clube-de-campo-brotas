@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDemo } from "../lib/DemoContext.jsx";
-import { shortDate } from "../lib/model.mjs";
+import { shortDate, formatMoney } from "../lib/model.mjs";
 import { Brand, Button, DemoNote, Icon, Modal, asset } from "./ui.jsx";
 import ReservationModal from "./ReservationModal.jsx";
 
 export default function SitePreview() {
-  const { state, setExperience, setMemberPage } = useDemo();
+  const { state, setExperience, setMemberPage, setVisitorEventId } = useDemo();
   const [view, setView] = useState("home");
   const [event, setEvent] = useState(null);
   const [photo, setPhoto] = useState(null);
@@ -13,6 +13,10 @@ export default function SitePreview() {
   const enter = () => {
     setExperience("member");
     setMemberPage("bills");
+  };
+  const enterVisitor = (item = null) => {
+    setVisitorEventId(item?.id ?? null);
+    setExperience("visitor");
   };
   return (
     <div className="site-preview">
@@ -70,6 +74,14 @@ export default function SitePreview() {
                 Uma nova forma de acompanhar o clube: programação, fotos e
                 serviços, no computador e no celular.
               </p>
+              <button
+                className="text-button site-visitor-link"
+                type="button"
+                onClick={() => enterVisitor()}
+              >
+                Não sou sócio · Entrar ou criar cadastro{" "}
+                <Icon name="arrow" size={17} />
+              </button>
             </div>
             <div className="site-story-links">
               <a
@@ -124,9 +136,24 @@ export default function SitePreview() {
                     type="button"
                     onClick={() => setEvent(item)}
                   >
-                    Ver evento e participar
+                    Participar como associado
                     <Icon name="arrow" size={16} />
                   </button>
+                  {item.audience === "public" && (
+                    <>
+                      <p className="site-public-price">
+                        Aberto ao público · Não sócio:{" "}
+                        {formatMoney(item.guestPrice)}
+                      </p>
+                      <button
+                        className="text-button"
+                        type="button"
+                        onClick={() => enterVisitor(item)}
+                      >
+                        Comprar como não sócio <Icon name="arrow" size={16} />
+                      </button>
+                    </>
+                  )}
                 </div>
               </article>
             ))}

@@ -4,6 +4,7 @@ import { formatDate, formatMoney } from "../lib/model.mjs";
 import { Avatar, Brand, Button, DemoNote, Icon, Modal, Status } from "./ui.jsx";
 import PaymentModal from "./PaymentModal.jsx";
 import TicketCard from "./TicketCard.jsx";
+import { memberTickets } from "../lib/visitors.mjs";
 
 const navigation = [
   { id: "home", label: "Início", icon: "home" },
@@ -323,7 +324,7 @@ export default function MemberPanel() {
           {memberPage === "tickets" && (
             <>
               <div className="portal-tickets">
-                {state.tickets.map((ticket) => (
+                {memberTickets(state).map((ticket) => (
                   <TicketCard
                     compact
                     downloadable
@@ -353,7 +354,7 @@ export default function MemberPanel() {
                     </tr>
                   </thead>
                   <tbody>
-                    {state.tickets.map((ticket) => (
+                    {memberTickets(state).map((ticket) => (
                       <tr key={ticket.id}>
                         <td>
                           {

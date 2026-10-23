@@ -9,11 +9,11 @@ Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram m
 | Oferta                              | Desenvolvimento / implantação | Manutenção                                       | Prazo proposto                                                 |
 | ----------------------------------- | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
 | Site, portal, painel e portaria web | R$ 7.900                      | R$ 2.490/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
-| App Android/iOS opcional            | R$ 9.900                      | R$ 1.990/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
+| App Android/iOS opcional            | R$ 9.900                      | R$ 3.500/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
 
 O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web é suficiente para usar site, portal, painel e portaria online/offline. O desenvolvimento do app, ingresso salvo no app e notificações mobile não pertencem ao pacote web. A vigência e o suporte do app serão definidos no contrato próprio.
 
-A revisão autorizada da mensalidade mobile é R$ 1.990. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 4.480. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
+A revisão autorizada da mensalidade mobile é R$ 3.500. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 5.990. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
 
 As estimativas pressupõem escopo aprovado e disponibilização de conteúdo, dados e acessos. A cobrança web começa após implantação e aceite; a adicional mobile, após lançamento e aceite. As condições serão formalizadas em contrato. A implantação pública do app depende da aprovação das lojas e do aceite do clube.
 
@@ -36,7 +36,7 @@ pnpm build
 
 ## Explorar os fluxos
 
-1. Em **Experiências**, alterne entre site, associado e administração.
+1. Em **Experiências**, alterne entre site, associado, **Não sou sócio** e administração.
 2. No site, abra **Eventos** e emita um ingresso para um integrante da família fictícia.
 3. Consulte o ingresso na área do associado ou no aplicativo.
 4. Na administração ou no formulário de eventos, publique um novo evento. Ele aparece na agenda da demonstração.
@@ -47,6 +47,18 @@ pnpm build
 9. Na aba **Segurança e 2FA**, alterne entre portal e aplicativo opcional e simule senha → código → acesso. O código fictício é `123456`; não há autenticação real.
 10. Na portaria, clique em **Baixar lista do evento**, depois **Simular modo offline**. Uma leitura válida registra uma entrada pendente no aparelho; a repetição é bloqueada nessa lista. **Reconectar e sincronizar** reconcilia as entradas com a base local da demonstração e sinaliza conflitos.
 11. No aplicativo, em **Ingressos**, use **Salvar para usar offline** e depois **Simular offline**. A prévia mostra o mesmo QR Code usando apenas a cópia salva. Sem cópias, mostra uma orientação para voltar ao modo online.
+
+## Cadastro, login e compra de não sócios
+
+1. Em **Experiências → Não sou sócio**, entre com `joao@example.com` e o código fictício `123456` ou use **Criar cadastro** com um nome fictício e e-mail `@example.com`.
+2. Escolha um evento aberto ao público. O evento exclusivo de tênis não é oferecido ao visitante.
+3. Clique em **Comprar ingresso → Continuar compra → Simular Pix e emitir ingresso**. Também há opções ilustrativas de cartão e boleto; não são coletados dados bancários nem realizados pagamentos.
+4. Consulte o QR em **Meus ingressos** e o registro em **Minhas compras**. A emissão usa o preço de não sócio e compartilha a capacidade e a validação da portaria com os associados.
+5. Saia e crie outra conta fictícia: ela começa sem acesso aos ingressos da conta anterior. A área do associado continua mostrando somente a família fictícia e seus convidados vinculados.
+6. No site, **Eventos → Comprar como não sócio** direciona à área própria. Não é necessário instalar o app ou depender de um titular.
+7. Na prévia do app, alterne **Sou associado / Não sou sócio**. O visitante acessa eventos, ingressos e compras; mensalidades e família permanecem na área do associado.
+
+O cadastro e a sessão são demonstrações em memória, reiniciadas ao recarregar a página. Só são aceitos endereços `@example.com`; não use dados reais. Os ingressos fictícios continuam no estado local da demonstração. O seletor de perfis serve à apresentação e não representa autorização real: o produto final precisa validar identidade, vínculo e permissões no servidor. Na administração, o campo **Público do evento** controla a abertura aos não sócios; novos eventos ficam restritos por padrão.
 
 ## Ingresso salvo pelo associado
 

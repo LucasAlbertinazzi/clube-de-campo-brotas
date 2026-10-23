@@ -10,7 +10,7 @@ export const mobileProposal = Object.freeze({
   optional: true,
   status: "offered",
   developmentCents: 990000,
-  monthlyCents: 199000,
+  monthlyCents: 350000,
 });
 
 export const webDelivery = Object.freeze([

@@ -8,6 +8,7 @@ import {
 } from "../lib/member-tickets.mjs";
 import { Button, Icon, Tabs } from "./ui.jsx";
 import TicketCard from "./TicketCard.jsx";
+import { memberTickets } from "../lib/visitors.mjs";
 import "./member-tickets.css";
 
 const modes = [
@@ -31,7 +32,7 @@ export default function MemberTickets() {
   const offline = mode === "offline";
   const choices = offline
     ? wallet.tickets
-    : state.tickets
+    : memberTickets(state)
         .map((ticket) => ({
           ticket,
           event: state.events.find((event) => event.id === ticket.eventId),

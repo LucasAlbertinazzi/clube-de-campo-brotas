@@ -15,6 +15,7 @@ import MemberTickets from "./MemberTickets.jsx";
 import PaymentModal from "./PaymentModal.jsx";
 import ReservationModal from "./ReservationModal.jsx";
 import { FamilyView } from "./MemberPanel.jsx";
+import VisitorPanel from "./VisitorPanel.jsx";
 
 export const appNavigation = [
   { id: "home", label: "Início", icon: "home" },
@@ -24,10 +25,20 @@ export const appNavigation = [
 ];
 
 export default function MobileApp() {
-  const { state, appPage, setAppPage } = useDemo();
+  const { state, appPage, setAppPage, appAudience } = useDemo();
   const [bill, setBill] = useState(null);
   const [event, setEvent] = useState(null);
   const [notices, setNotices] = useState(false);
+  if (appAudience === "visitor") {
+    return (
+      <PhoneFrame
+        className="showcase-phone visitor-phone"
+        label="Aplicativo navegável do não sócio"
+      >
+        <VisitorPanel compact />
+      </PhoneFrame>
+    );
+  }
   return (
     <>
       <PhoneFrame

@@ -11,6 +11,10 @@ import "./delivery.css";
 
 const faq = [
   [
+    "Quem não é sócio pode comprar ingresso?",
+    "Sim, nos eventos que o clube abrir ao público. O não sócio cria seu próprio cadastro, entra na conta e compra pelo site, sem instalar o app ou depender de um titular. Se contratado, o aplicativo oferece o mesmo acesso de visitante. Mensalidades, família e benefícios exclusivos continuam na área do associado. Esta apresentação simula cadastro, login e pagamento com dados fictícios.",
+  ],
+  [
     "A mensalidade já inclui a nuvem e a segurança?",
     `Sim. O pacote web mantém implantação de ${wholeMoney(proposal.implementationCents)} e mensalidade de ${wholeMoney(proposal.monthlyCents)} por ${proposal.termMonths} meses, com hospedagem, banco de dados, proteção, backups e manutenção. O aplicativo do associado não está incluído. Domínio e tarifas bancárias são separados.`,
   ],

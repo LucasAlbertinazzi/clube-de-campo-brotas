@@ -17,6 +17,12 @@ import {
   validateTicket,
 } from "./model.mjs";
 import { syncOfflineList } from "./offline.mjs";
+import {
+  visitorSeed,
+  createVisitorProfile,
+  signInVisitor,
+  issueVisitorTicket,
+} from "./visitors.mjs";
 
 const DemoContext = createContext(null);
 
@@ -34,6 +40,10 @@ export function DemoProvider({ children }) {
   const [memberPage, setMemberPage] = useState("bills");
   const [adminPage, setAdminPage] = useState("events");
   const [appPage, setAppPage] = useState("tickets");
+  const [appAudience, setAppAudience] = useState("member");
+  const [visitorProfile, setVisitorProfile] = useState(visitorSeed);
+  const [visitorSession, setVisitorSession] = useState(null);
+  const [visitorEventId, setVisitorEventId] = useState(null);
   const commit = useCallback((next) => {
     current.current = next;
     setState(next);
@@ -60,6 +70,32 @@ export function DemoProvider({ children }) {
   }, [toast]);
   const notify = useCallback((message) => setToast(message), []);
   const actions = {
+    signInVisitor(email, code) {
+      const result = signInVisitor(visitorProfile, email, code);
+      if (result.profile) setVisitorSession(result.profile);
+      return result;
+    },
+    registerVisitor(input) {
+      const result = createVisitorProfile(input);
+      if (result.profile) {
+        setVisitorProfile(result.profile);
+        setVisitorSession(result.profile);
+      }
+      return result;
+    },
+    signOutVisitor() {
+      setVisitorSession(null);
+    },
+    buyVisitorTicket(eventId, confirmed) {
+      const result = issueVisitorTicket(
+        current.current,
+        eventId,
+        visitorSession,
+        confirmed,
+      );
+      if (result.ticket && !result.error) commit(result.state);
+      return result;
+    },
     addEvent(input) {
       const result = createEvent(
         current.current,
@@ -192,6 +228,12 @@ export function DemoProvider({ children }) {
         setAdminPage,
         appPage,
         setAppPage,
+        appAudience,
+        setAppAudience,
+        visitorProfile,
+        visitorSession,
+        visitorEventId,
+        setVisitorEventId,
       }}
     >
       {children}

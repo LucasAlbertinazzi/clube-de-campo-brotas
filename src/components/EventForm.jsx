@@ -13,6 +13,7 @@ export default function EventForm({ onCreated }) {
     capacity: 150,
     memberPrice: 0,
     guestPrice: 40,
+    audience: "members",
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(null);
@@ -96,6 +97,18 @@ export default function EventForm({ onCreated }) {
           </div>
           <div className="form-panel">
             <h4>Ingressos</h4>
+            <label className="field">
+              Público do evento
+              <select
+                value={form.audience}
+                onChange={(e) => set("audience", e.target.value)}
+              >
+                <option value="members">
+                  Associados e convidados vinculados
+                </option>
+                <option value="public">Aberto a não sócios</option>
+              </select>
+            </label>
             <div className="field-row">
               <label className="field">
                 Associado · R$
@@ -109,7 +122,7 @@ export default function EventForm({ onCreated }) {
                 />
               </label>
               <label className="field">
-                Convidado · R$
+                Não sócio / convidado · R$
                 <input
                   type="number"
                   min="0"

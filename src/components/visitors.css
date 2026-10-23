@@ -1,0 +1,351 @@
+.visitor-panel {
+  padding: clamp(20px, 3vw, 38px);
+  min-width: 0;
+  background: #f8fbfd;
+}
+.visitor-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.visitor-label {
+  display: block;
+  color: var(--blue);
+  font-weight: 750;
+  font-size: 10px;
+  letter-spacing: 0.075em;
+  line-height: 1.8;
+}
+.visitor-heading h3 {
+  font-size: clamp(24px, 3vw, 35px);
+  margin-top: 7px;
+  line-height: 1.2;
+}
+.visitor-access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.visitor-auth {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 0;
+}
+.visitor-auth > .tabs {
+  margin-bottom: 18px;
+}
+.visitor-auth > .tabs > button {
+  flex: 1;
+  min-width: 0;
+}
+.visitor-auth > p,
+.visitor-access-copy p,
+.visitor-access-copy li {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.visitor-auth .field {
+  margin-top: 17px;
+}
+.visitor-auth .button {
+  margin-top: 20px;
+}
+.visitor-auth input {
+  min-width: 0;
+}
+.visitor-auth .field-hint {
+  margin-top: 12px;
+  font-size: 10px;
+}
+.visitor-access-copy {
+  padding: 24px 8px;
+}
+.visitor-access-copy > svg {
+  color: var(--blue);
+}
+.visitor-access-copy h4 {
+  font-size: 25px;
+  margin: 17px 0 14px;
+}
+.visitor-access-copy ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding-left: 18px;
+}
+.visitor-intent {
+  padding: 13px 16px;
+  background: #e8f4f9;
+  color: var(--blue);
+  border-radius: 8px;
+  font-size: 12px;
+  margin-top: 20px;
+}
+.visitor-profile-note {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.visitor-navigation {
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 25px;
+}
+.visitor-navigation > button {
+  min-width: 0;
+  font-size: 12px;
+}
+.visitor-events {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.visitor-events > .visitor-intent {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.visitor-event {
+  padding: 23px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.visitor-event h4 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+.visitor-event > p {
+  color: var(--muted);
+  font-size: 12px;
+}
+.visitor-event > div {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.visitor-event .button {
+  font-size: 12px;
+  padding: 12px 15px;
+}
+.visitor-ticket-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+  max-width: 750px;
+}
+.visitor-ticket-list .ticket-card {
+  max-width: 350px;
+}
+.visitor-empty {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 20px 0;
+}
+.visitor-purchases > h4 {
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+.visitor-purchases article {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.visitor-purchases article > div {
+  flex: 1;
+  min-width: 0;
+}
+.visitor-purchases p {
+  font-size: 11px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.visitor-purchases strong {
+  font-size: 13px;
+}
+.visitor-buyer {
+  display: flex;
+  gap: 12px;
+  color: var(--muted);
+  padding: 17px 0;
+  font-size: 13px;
+}
+.visitor-confirm {
+  margin-top: 20px;
+}
+.site-visitor-link {
+  margin-top: 16px;
+}
+.site-public-price {
+  font-size: 12px;
+  color: var(--blue);
+  margin-top: 12px;
+}
+.tabs.app-audience-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 24px 0;
+  max-width: 100%;
+  width: 100%;
+  max-width: 420px;
+}
+.tabs.app-audience-tabs > button {
+  min-width: 0;
+  white-space: normal;
+  font-size: 12px;
+  padding-inline: 17px;
+}
+.visitor-app-features {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  margin: 24px 0;
+}
+.visitor-app-features li {
+  display: flex;
+  align-items: start;
+  gap: 13px;
+  color: var(--navy);
+  font-size: 14px;
+}
+.visitor-app-features svg {
+  color: var(--blue);
+}
+.visitor-panel-compact {
+  padding: 18px 16px;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+}
+.visitor-panel-compact .visitor-heading {
+  margin-bottom: 17px;
+}
+.visitor-panel-compact .visitor-heading h3 {
+  font-size: 24px;
+}
+.visitor-panel-compact .visitor-label {
+  font-size: 8px;
+}
+.visitor-panel-compact .visitor-access-grid,
+.visitor-panel-compact .visitor-events {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.visitor-panel-compact .visitor-access-copy {
+  display: none;
+}
+.visitor-panel-compact .visitor-auth {
+  padding: 14px;
+}
+.visitor-panel-compact .visitor-auth > .tabs > button {
+  font-size: 11px;
+  padding: 10px 6px;
+}
+.visitor-panel-compact .visitor-auth > p {
+  font-size: 10px;
+}
+.visitor-panel-compact .field {
+  font-size: 11px;
+}
+.visitor-panel-compact input {
+  padding: 10px;
+  font-size: 12px;
+}
+.visitor-panel-compact .visitor-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  gap: 0;
+}
+.visitor-panel-compact .visitor-navigation > button {
+  padding: 8px 3px;
+  flex-direction: column;
+  white-space: normal;
+  font-size: 9px;
+  line-height: 1.5;
+}
+.visitor-panel-compact .visitor-event {
+  padding: 16px;
+}
+.visitor-panel-compact .visitor-event h4 {
+  font-size: 20px;
+}
+.visitor-panel-compact .visitor-event > div {
+  margin-top: 14px;
+}
+.visitor-panel-compact .visitor-event .button {
+  width: 100%;
+  font-size: 11px;
+}
+.visitor-panel-compact .visitor-profile-note {
+  font-size: 10px;
+}
+.visitor-panel-compact .visitor-purchases article {
+  flex-wrap: wrap;
+}
+.visitor-phone .phone-screen {
+  display: flex;
+  flex-direction: column;
+}
+.visitor-phone .visitor-panel {
+  flex: 1;
+  min-height: 0;
+}
+.visitor-phone .phone-home {
+  position: static;
+  flex-shrink: 0;
+  margin: 8px auto;
+}
+@media (max-width: 760px) {
+  .visitor-access-grid,
+  .visitor-events {
+    grid-template-columns: 1fr;
+  }
+  .visitor-access-grid {
+    gap: 10px;
+  }
+  .visitor-auth {
+    padding: 18px;
+  }
+  .visitor-access-copy {
+    padding-inline: 0;
+  }
+  .visitor-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 0;
+  }
+  .visitor-navigation > button {
+    padding: 12px 5px;
+    white-space: normal;
+    font-size: 10px;
+    flex-direction: column;
+  }
+  .tabs.experience-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .tabs.experience-tabs > button {
+    white-space: normal;
+    width: 100%;
+  }
+  .visitor-purchases article {
+    flex-wrap: wrap;
+  }
+}

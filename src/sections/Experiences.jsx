@@ -3,6 +3,7 @@ import { BrowserFrame, Icon, SectionHeading, Tabs } from "../components/ui.jsx";
 import SitePreview from "../components/SitePreview.jsx";
 import MemberPanel from "../components/MemberPanel.jsx";
 import AdminPanel from "../components/AdminPanel.jsx";
+import VisitorPanel from "../components/VisitorPanel.jsx";
 
 export default function Experiences() {
   const { experience, setExperience } = useDemo();
@@ -27,6 +28,7 @@ export default function Experiences() {
           items={[
             { id: "site", label: "Site do clube", icon: "home" },
             { id: "member", label: "Área do associado", icon: "users" },
+            { id: "visitor", label: "Não sou sócio", icon: "ticket" },
             { id: "admin", label: "Administração", icon: "dashboard" },
           ]}
         />
@@ -37,13 +39,17 @@ export default function Experiences() {
               ? "Site do clube · Demonstração"
               : experience === "member"
                 ? "Portal do associado · Demonstração"
-                : "Administração · Demonstração"
+                : experience === "visitor"
+                  ? "Não sócio · Login e ingressos"
+                  : "Administração · Demonstração"
           }
         >
           {experience === "site" ? (
             <SitePreview />
           ) : experience === "member" ? (
             <MemberPanel />
+          ) : experience === "visitor" ? (
+            <VisitorPanel />
           ) : (
             <AdminPanel />
           )}
