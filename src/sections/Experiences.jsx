@@ -3,10 +3,9 @@ import { BrowserFrame, Icon, SectionHeading, Tabs } from "../components/ui.jsx";
 import SitePreview from "../components/SitePreview.jsx";
 import MemberPanel from "../components/MemberPanel.jsx";
 import AdminPanel from "../components/AdminPanel.jsx";
-import VisitorPanel from "../components/VisitorPanel.jsx";
 
 export default function Experiences() {
-  const { experience, setExperience } = useDemo();
+  const { experience, setExperience, demoPackage, setDemoPackage } = useDemo();
   return (
     <section id="experiencias" className="section section-anchor">
       <div className="container">
@@ -18,7 +17,7 @@ export default function Experiences() {
               <br className="desktop-break" /> de viver o clube.
             </>
           }
-          description="Explore as telas e veja como os serviços se encontram."
+          description="Pacote web: site, portal do associado e administração básica. Compras e ingressos são exclusivos do app adicional."
         />
         <Tabs
           className="experience-tabs"
@@ -28,10 +27,27 @@ export default function Experiences() {
           items={[
             { id: "site", label: "Site do clube", icon: "home" },
             { id: "member", label: "Área do associado", icon: "users" },
-            { id: "visitor", label: "Não sou sócio", icon: "ticket" },
             { id: "admin", label: "Administração", icon: "dashboard" },
           ]}
         />
+        <p className="package-scope-note">
+          <Icon name="dashboard" size={18} />
+          {experience === "admin" && demoPackage === "combined"
+            ? "WEB + APP · Gestão de ingressos habilitada no painel. Compras e QR Code somente no app."
+            : "PACOTE WEB · Site, família, cobranças e agenda informativa. Sem ingressos ou portaria."}
+        </p>
+        {experience === "admin" && (
+          <Tabs
+            className="package-demo-tabs"
+            label="Pacote demonstrado no painel"
+            value={demoPackage}
+            onChange={setDemoPackage}
+            items={[
+              { id: "web", label: "Somente web", icon: "dashboard" },
+              { id: "combined", label: "Web + app", icon: "phone" },
+            ]}
+          />
+        )}
         <BrowserFrame
           className="experience-browser"
           title={
@@ -39,19 +55,17 @@ export default function Experiences() {
               ? "Site do clube · Demonstração"
               : experience === "member"
                 ? "Portal do associado · Demonstração"
-                : experience === "visitor"
-                  ? "Não sócio · Login e ingressos"
-                  : "Administração · Demonstração"
+                : demoPackage === "combined"
+                  ? "Administração · Web + pacote app"
+                  : "Administração · Somente web"
           }
         >
           {experience === "site" ? (
             <SitePreview />
           ) : experience === "member" ? (
             <MemberPanel />
-          ) : experience === "visitor" ? (
-            <VisitorPanel />
           ) : (
-            <AdminPanel />
+            <AdminPanel key={demoPackage} />
           )}
         </BrowserFrame>
         <p className="experience-hint">

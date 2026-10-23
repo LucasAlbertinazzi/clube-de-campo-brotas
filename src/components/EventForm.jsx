@@ -3,7 +3,7 @@ import { useDemo } from "../lib/DemoContext.jsx";
 import { Button, DemoNote, Icon, asset } from "./ui.jsx";
 import { formatDate, formatMoney } from "../lib/model.mjs";
 
-export default function EventForm({ onCreated }) {
+export default function EventForm({ onCreated, ticketing = true }) {
   const { actions } = useDemo();
   const [form, setForm] = useState({
     name: "Encontro de Verão",
@@ -22,7 +22,13 @@ export default function EventForm({ onCreated }) {
     setSuccess(null);
   };
   const submit = (status) => {
-    const result = actions.addEvent({ ...form, status });
+    const result = actions.addEvent({
+      ...form,
+      ...(ticketing
+        ? {}
+        : { memberPrice: 0, guestPrice: 0, audience: "members" }),
+      status,
+    });
     if (result.error) {
       setError(result.error);
       return;
@@ -95,46 +101,51 @@ export default function EventForm({ onCreated }) {
               </label>
             </div>
           </div>
-          <div className="form-panel">
-            <h4>Ingressos</h4>
-            <label className="field">
-              Público do evento
-              <select
-                value={form.audience}
-                onChange={(e) => set("audience", e.target.value)}
-              >
-                <option value="members">
-                  Associados e convidados vinculados
-                </option>
-                <option value="public">Aberto a não sócios</option>
-              </select>
-            </label>
-            <div className="field-row">
+          {ticketing && (
+            <div className="form-panel">
+              <h4>Ingressos · Pacote app</h4>
               <label className="field">
-                Associado · R$
-                <input
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={form.memberPrice}
-                  onChange={(e) => set("memberPrice", e.target.value)}
-                  required
-                />
+                Público do evento
+                <select
+                  value={form.audience}
+                  onChange={(e) => set("audience", e.target.value)}
+                >
+                  <option value="members">
+                    Associados e convidados vinculados
+                  </option>
+                  <option value="public">Aberto a não sócios</option>
+                </select>
               </label>
-              <label className="field">
-                Não sócio / convidado · R$
-                <input
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={form.guestPrice}
-                  onChange={(e) => set("guestPrice", e.target.value)}
-                  required
-                />
-              </label>
+              <div className="field-row">
+                <label className="field">
+                  Associado · R$
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={form.memberPrice}
+                    onChange={(e) => set("memberPrice", e.target.value)}
+                    required
+                  />
+                </label>
+                <label className="field">
+                  Não sócio / convidado · R$
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={form.guestPrice}
+                    onChange={(e) => set("guestPrice", e.target.value)}
+                    required
+                  />
+                </label>
+              </div>
+              <p className="field-hint">
+                Use zero para ingresso gratuito. Compras e QR Code
+                exclusivamente no app.
+              </p>
             </div>
-            <p className="field-hint">Use zero para ingresso gratuito.</p>
-          </div>
+          )}
         </div>
         <div className="event-form-preview">
           <div className="form-panel">
@@ -159,11 +170,13 @@ export default function EventForm({ onCreated }) {
               <Icon name="pin" size={14} />
               {form.location}
             </p>
-            <span>
-              {Number(form.memberPrice) === 0
-                ? "Associado · Gratuito"
-                : `Associado · ${formatMoney(Number(form.memberPrice) || 0)}`}
-            </span>
+            {ticketing && (
+              <span>
+                {Number(form.memberPrice) === 0
+                  ? "Associado · Gratuito"
+                  : `Associado · ${formatMoney(Number(form.memberPrice) || 0)}`}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -183,7 +196,9 @@ export default function EventForm({ onCreated }) {
             </strong>{" "}
             {success.name} aparece agora no painel
             {success.status === "published"
-              ? ", no site e no aplicativo"
+              ? ticketing
+                ? ", na agenda do site e no app"
+                : " e na agenda informativa do site"
               : ""}{" "}
             desta demonstração.
           </span>

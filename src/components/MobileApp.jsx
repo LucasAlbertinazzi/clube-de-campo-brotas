@@ -60,7 +60,9 @@ export default function MobileApp() {
           {appPage === "home" && (
             <>
               <h3>Olá, {state.family[0].name.split(" ")[0]}</h3>
-              <p className="app-subtitle">Que bom ver você por aqui!</p>
+              <p className="app-subtitle">
+                Escolha um evento para emitir seu ingresso no app.
+              </p>
               <img
                 className="app-home-photo"
                 src={asset("clube-paisagem.jpeg")}
@@ -84,7 +86,7 @@ export default function MobileApp() {
                     <span>
                       <strong>{item.name}</strong>
                       <small>
-                        {item.location} · {item.time}
+                        {item.location} · {item.time} · Ingressos no app
                       </small>
                     </span>
                     <Icon name="next" size={16} />

@@ -6,12 +6,19 @@ export default function Events() {
     <section className="section events-section section-anchor" id="eventos">
       <div className="container events-layout">
         <div className="events-copy">
+          <span className="investment-eyebrow">
+            PACOTE APP · GESTÃO INTEGRADA NO PAINEL
+          </span>
           <h2>
             Um evento começa
             <br />
             na organização.
           </h2>
-          <p>Cadastre, publique e acompanhe as inscrições pelo mesmo painel.</p>
+          <p>
+            Com o pacote app contratado, a equipe configura ingressos no painel.
+            Associados e não sócios compram e recebem o QR Code somente no
+            aplicativo. O web básico oferece apenas agenda informativa.
+          </p>
           <ol className="event-steps">
             {[
               {
@@ -24,7 +31,7 @@ export default function Events() {
               },
               {
                 title: "Escolha quem pode comprar",
-                text: "Defina eventos exclusivos ou abertos a não sócios, no site e no app opcional.",
+                text: "Defina eventos exclusivos ou abertos a não sócios. A compra acontece somente no app.",
               },
               {
                 title: "Acompanhe as entradas",
@@ -42,13 +49,13 @@ export default function Events() {
           </ol>
         </div>
         <BrowserFrame
-          title="Administração · Novo evento"
+          title="Pacote app · Gestão de ingressos no painel"
           className="event-browser"
         >
           <div className="event-editor-heading">
             <div>
               <h3>Novo evento</h3>
-              <p>Experimente publicar um evento de exemplo.</p>
+              <p>Recurso adicional do pacote app. Sem compra pelo navegador.</p>
             </div>
             <Icon name="calendar" size={24} />
           </div>

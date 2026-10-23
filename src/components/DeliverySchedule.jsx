@@ -18,7 +18,7 @@ export default function DeliverySchedule({
       </p>
       <p className="delivery-result">
         {mobile
-          ? "Até a conclusão do desenvolvimento, homologação e envio às lojas."
+          ? "App e módulo de ingressos: desenvolvimento, homologação e envio às lojas."
           : "Do início do projeto até a implantação web em produção."}
       </p>
       <ol className="delivery-stages">
@@ -40,7 +40,7 @@ export default function DeliverySchedule({
         <span>
           {mobile
             ? "Começa após implantação e aceite web, contratação específica e liberação dos acessos necessários. A análise Apple/Google é adicional: o lançamento depende da aprovação das lojas e do aceite do clube."
-            : "Começa com contratação, escopo aprovado e entrega dos conteúdos, dados e acessos necessários. Inclui migração, treinamento e teste piloto da portaria."}
+            : "Começa com contratação, escopo aprovado e entrega dos conteúdos, dados e acessos necessários. Inclui migração e treinamento da gestão web. Ingressos e piloto da portaria ficam na etapa do pacote app."}
         </span>
       </p>
     </article>

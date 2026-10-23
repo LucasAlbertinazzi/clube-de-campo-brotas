@@ -11,16 +11,20 @@ import "./delivery.css";
 
 const faq = [
   [
+    "O pacote web já inclui ingressos?",
+    "Não. O web inclui site, agenda informativa, portal do associado, família, cobranças e administração básica. Ingressos, cadastro de não sócios, pagamentos de eventos e portaria pertencem ao pacote app adicional. A gestão de ingressos no painel só é habilitada por esse pacote; compra e QR Code ficam exclusivamente no app.",
+  ],
+  [
     "Quem não é sócio pode comprar ingresso?",
-    "Sim, nos eventos que o clube abrir ao público. O não sócio cria seu próprio cadastro, entra na conta e compra pelo site, sem instalar o app ou depender de um titular. Se contratado, o aplicativo oferece o mesmo acesso de visitante. Mensalidades, família e benefícios exclusivos continuam na área do associado. Esta apresentação simula cadastro, login e pagamento com dados fictícios.",
+    "Sim, exclusivamente no app Android/iOS, nos eventos abertos ao público e somente com o pacote app contratado. O visitante cria sua própria conta, sem depender de um titular. Não haverá cadastro de não sócios, compra ou exibição de ingresso pelo site ou portal. Esta apresentação simula o app com dados fictícios.",
   ],
   [
     "A mensalidade já inclui a nuvem e a segurança?",
-    `Sim. O pacote web mantém implantação de ${wholeMoney(proposal.implementationCents)} e mensalidade de ${wholeMoney(proposal.monthlyCents)} por ${proposal.termMonths} meses, com hospedagem, banco de dados, proteção, backups e manutenção. O aplicativo do associado não está incluído. Domínio e tarifas bancárias são separados.`,
+    `Sim. O pacote web mantém implantação de ${wholeMoney(proposal.implementationCents)} e mensalidade de ${wholeMoney(proposal.monthlyCents)} por ${proposal.termMonths} meses, com hospedagem, banco de dados, proteção, backups e manutenção. O pacote web não inclui app, ingressos ou portaria. Domínio e tarifas bancárias são separados.`,
   ],
   [
     "Preciso contratar o aplicativo junto com o web?",
-    `Não. O clube pode contratar somente o site, o portal, o painel e a portaria web. Android/iOS é opcional, após implantação e aceite web e contratação própria. A proposta separada é ${wholeMoney(mobileProposal.developmentCents)} de desenvolvimento e ${wholeMoney(mobileProposal.monthlyCents)}/mês de manutenção adicional após lançamento e aceite.`,
+    `Não. O clube pode contratar somente o site, o portal, a agenda informativa e a administração básica. Ingressos e portaria ficam fora desse escopo. Android/iOS é opcional, após implantação e aceite web e contratação própria. A proposta separada é ${wholeMoney(mobileProposal.developmentCents)} de desenvolvimento e ${wholeMoney(mobileProposal.monthlyCents)}/mês de manutenção adicional após lançamento e aceite.`,
   ],
   [
     "O portal e o aplicativo poderão usar dois fatores?",
@@ -28,19 +32,19 @@ const faq = [
   ],
   [
     "O aplicativo terá o mesmo acesso do site?",
-    "Se contratado, o aplicativo usará a mesma conta e os serviços do portal. A proposta prevê uma conta por pessoa, com vínculo familiar. Funcionários terão acessos próprios e permissões por função.",
+    "O associado usa a mesma conta e os dados da família e das cobranças na base web e no app. Os pacotes se complementam: o web organiza a gestão; o app acrescenta notificações e a experiência de eventos. Não sócios entram por uma área própria no app, sem acesso a família ou mensalidades de associados.",
   ],
   [
     "É necessário um computador na portaria?",
-    "O fluxo usa celular com câmera. Com internet, a equipe prepara e baixa a lista; durante o evento, poderá ler os QR Codes offline e sincronizar depois. A integração com catracas ou equipamentos existentes será avaliada separadamente, se necessária.",
+    "A portaria é um recurso do pacote app adicional. A equipe usa celular com câmera para preparar a lista e ler os QR Codes; a gestão e o acompanhamento ficam integrados ao painel. O pacote web básico não inclui portaria. Equipamentos e catracas serão avaliados separadamente.",
   ],
   [
     "Como a portaria funcionará sem internet?",
-    "A portaria online/offline pertence ao pacote web e não depende da contratação do app do associado. Antes do evento, a equipe baixa a lista atualizada no cliente de portaria preparado no aparelho. Sem internet, ele consulta essa lista, bloqueia repetição no mesmo celular e salva as entradas. Ao reconectar, sincroniza os registros. Ingressos novos e cancelamentos posteriores ao download exigem atualização. Esta página apenas simula o fluxo.",
+    "Somente no pacote app. Antes do evento, a equipe prepara o aparelho e baixa a lista atualizada. Sem internet, consulta essa lista, bloqueia repetição no mesmo celular e salva entradas. Ao reconectar, sincroniza. Novos ingressos e cancelamentos após o download exigem atualização. A prévia da apresentação apenas simula essa operação.",
   ],
   [
     "Preciso baixar algo para usar o sistema online?",
-    "Não. O uso online é o padrão e funciona normalmente, tanto no aplicativo do associado quanto na portaria. Salvar o ingresso ou baixar a lista é opcional e prepara o aparelho para uma eventual falta de conexão. Sem internet, só estarão disponíveis os ingressos ou listas previamente salvos.",
+    "Site e portal web funcionam no navegador para os serviços de gestão contratados. Para comprar, receber e apresentar ingresso, associados e não sócios usam o app Android/iOS instalado. O associado pode salvar seu QR para contingência; a equipe prepara a lista da portaria antes de operar sem conexão.",
   ],
   [
     "O associado poderá mostrar o ingresso sem internet?",
@@ -60,7 +64,7 @@ const faq = [
   ],
   [
     "O que precisa ser confirmado antes da implantação?",
-    "A origem das cobranças, o acesso às integrações de pagamento, a exportação dos cadastros e as regras dos ingressos. Também será realizado um evento piloto para validar o funcionamento da portaria.",
+    "Na etapa web: origem das cobranças, integrações financeiras e exportação dos cadastros. Na etapa do pacote app: regras de ingressos, pagamentos de eventos e piloto da portaria, incluindo testes de carga e contingência offline. Os prazos são estimativas sujeitas à confirmação dessas dependências.",
   ],
 ];
 export default function Roadmap() {
@@ -82,7 +86,7 @@ export default function Roadmap() {
               stages={webDelivery}
             />
             <DeliverySchedule
-              title="Aplicativo Android e iOS"
+              title="App Android/iOS + ingressos"
               label="02 · OPCIONAL, APÓS O WEB"
               stages={mobileDelivery}
               mobile
@@ -92,7 +96,9 @@ export default function Roadmap() {
             As estimativas incluem desenvolvimento e homologação conforme o
             escopo apresentado. Dependências de integrações, exportação de dados
             e retornos do clube serão confirmadas no levantamento. O app não
-            condiciona a entrada do web em produção.
+            condiciona a entrada do web em produção. Sem o pacote app, não há
+            venda de ingressos, QR Code ou portaria. O piloto de eventos
+            acontece na etapa app.
           </p>
         </div>
       </section>

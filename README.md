@@ -6,12 +6,12 @@ Desenvolvido pela Nevuma Tech.
 
 Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram mantidos por orientação do responsável; os prazos e a oferta mobile abaixo compõem a revisão autorizada para publicação em 23/10/2026. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
 
-| Oferta                              | Desenvolvimento / implantação | Manutenção                                       | Prazo proposto                                                 |
-| ----------------------------------- | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
-| Site, portal, painel e portaria web | R$ 7.900                      | R$ 2.490/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
-| App Android/iOS opcional            | R$ 9.900                      | R$ 3.500/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
+| Oferta                               | Desenvolvimento / implantação | Manutenção                                       | Prazo proposto                                                 |
+| ------------------------------------ | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
+| Site, portal, agenda e painel web    | R$ 7.900                      | R$ 2.490/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
+| App Android/iOS + ingressos opcional | R$ 9.900                      | R$ 3.500/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
 
-O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web é suficiente para usar site, portal, painel e portaria online/offline. O desenvolvimento do app, ingresso salvo no app e notificações mobile não pertencem ao pacote web. A vigência e o suporte do app serão definidos no contrato próprio.
+O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web oferece site, portal, família, cobranças e agenda informativa. O pacote app adicional reúne Android/iOS, notificações e todo o módulo de ingressos, com gestão no painel e portaria online/offline. Compra, pagamento de ingressos, cadastro de não sócios e exibição do QR Code acontecem exclusivamente no app, sem compra pelo navegador. A vigência e o suporte do app serão definidos no contrato próprio.
 
 A revisão autorizada da mensalidade mobile é R$ 3.500. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 5.990. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
 
@@ -36,29 +36,21 @@ pnpm build
 
 ## Explorar os fluxos
 
-1. Em **Experiências**, alterne entre site, associado, **Não sou sócio** e administração.
-2. No site, abra **Eventos** e emita um ingresso para um integrante da família fictícia.
-3. Consulte o ingresso na área do associado ou no aplicativo.
-4. Na administração ou no formulário de eventos, publique um novo evento. Ele aparece na agenda da demonstração.
-5. Na portaria, selecione o evento e simule um QR válido, repetido ou inválido. Também é possível digitar o identificador do ingresso.
-6. **Ativar câmera** solicita autorização do dispositivo e lê os QR demonstrativos com a câmera traseira, quando disponível. O vídeo é processado localmente e os recursos da câmera são encerrados ao parar, sair da tela ou concluir a leitura.
-7. Experimente pagamentos simulados, alteração de nomes fictícios, publicações e atendimento.
-8. No menu **Investimento**, consulte implantação de R$7.900, mensalidade de R$2.490 por 48 meses, serviços incluídos e despesas separadas.
-9. Na aba **Segurança e 2FA**, alterne entre portal e aplicativo opcional e simule senha → código → acesso. O código fictício é `123456`; não há autenticação real.
-10. Na portaria, clique em **Baixar lista do evento**, depois **Simular modo offline**. Uma leitura válida registra uma entrada pendente no aparelho; a repetição é bloqueada nessa lista. **Reconectar e sincronizar** reconcilia as entradas com a base local da demonstração e sinaliza conflitos.
-11. No aplicativo, em **Ingressos**, use **Salvar para usar offline** e depois **Simular offline**. A prévia mostra o mesmo QR Code usando apenas a cópia salva. Sem cópias, mostra uma orientação para voltar ao modo online.
+1. Em **Experiências**, explore **Site do clube**, **Área do associado** e **Administração**. O site tem agenda informativa; o portal não tem ingressos, compras ou QR Code.
+2. Em **Administração → Somente web**, publique conteúdo e agenda. Não são oferecidos preços de ingressos, inscritos ou portaria.
+3. Alterne o painel para **Web + app**: gestão de valores, capacidade, inscritos e portaria passa a ser exibida, sempre identificada como parte do pacote app. Nenhuma compra é realizada pelo painel.
+4. Na seção **Aplicativo**, escolha **Sou associado → Início**, selecione um evento e emita ou compre um ingresso fictício. Consulte o QR em **Ingressos** e experimente salvar a cópia para uso offline.
+5. Em **Aplicativo → Não sou sócio**, entre com `joao@example.com` e código `123456`, ou crie uma conta fictícia `@example.com`. Compre em um evento aberto: **Comprar ingresso → Continuar compra → Simular Pix e emitir ingresso**.
+6. Consulte **Meus ingressos** e **Minhas compras** no app. Outra conta começa sem os ingressos da anterior; o visitante não acessa família ou mensalidades do associado.
+7. Na seção **Portaria**, identificada como pacote app, experimente QR válido, repetido e inválido. **Baixar lista do evento → Simular modo offline → Reconectar e sincronizar** demonstra a contingência. **Ativar câmera** depende de autorização; o vídeo é processado localmente e encerrado ao parar ou concluir a leitura.
+8. Em **Investimento**, confira o comparativo de pacotes, os valores de R$ 2.490 web e R$ 3.500 adicionais pelo app, total R$ 5.990/mês após os respectivos aceites.
+9. Na aba **Segurança e 2FA**, simule senha → código → acesso, usando o código fictício `123456`.
 
 ## Cadastro, login e compra de não sócios
 
-1. Em **Experiências → Não sou sócio**, entre com `joao@example.com` e o código fictício `123456` ou use **Criar cadastro** com um nome fictício e e-mail `@example.com`.
-2. Escolha um evento aberto ao público. O evento exclusivo de tênis não é oferecido ao visitante.
-3. Clique em **Comprar ingresso → Continuar compra → Simular Pix e emitir ingresso**. Também há opções ilustrativas de cartão e boleto; não são coletados dados bancários nem realizados pagamentos.
-4. Consulte o QR em **Meus ingressos** e o registro em **Minhas compras**. A emissão usa o preço de não sócio e compartilha a capacidade e a validação da portaria com os associados.
-5. Saia e crie outra conta fictícia: ela começa sem acesso aos ingressos da conta anterior. A área do associado continua mostrando somente a família fictícia e seus convidados vinculados.
-6. No site, **Eventos → Comprar como não sócio** direciona à área própria. Não é necessário instalar o app ou depender de um titular.
-7. Na prévia do app, alterne **Sou associado / Não sou sócio**. O visitante acessa eventos, ingressos e compras; mensalidades e família permanecem na área do associado.
+Esses fluxos são exclusivos da prévia do app; não há área de não sócio nem checkout no site/portal. Só eventos publicados explicitamente abertos ao público aparecem ao visitante. O valor de não sócio, a capacidade compartilhada e a validação na portaria usam a mesma base dos associados.
 
-O cadastro e a sessão são demonstrações em memória, reiniciadas ao recarregar a página. Só são aceitos endereços `@example.com`; não use dados reais. Os ingressos fictícios continuam no estado local da demonstração. O seletor de perfis serve à apresentação e não representa autorização real: o produto final precisa validar identidade, vínculo e permissões no servidor. Na administração, o campo **Público do evento** controla a abertura aos não sócios; novos eventos ficam restritos por padrão.
+Cadastro e sessão são demonstrações em memória, reiniciadas ao recarregar a página. Só são aceitos e-mails `@example.com`; não use dados reais. Os ingressos fictícios permanecem no estado local. Os seletores de perfil e pacote explicam a proposta comercial, sem representar autorização real: o produto final precisa validar identidade, contratação e permissões no servidor. A prévia do app é demonstrada no navegador desta apresentação; isso não oferece um canal web de compra no produto final.
 
 ## Ingresso salvo pelo associado
 
@@ -76,7 +68,7 @@ Esta apresentação não é um aplicativo instalado ou uma PWA para iniciar sem 
 
 ## Investimento e segurança
 
-Condições da proposta em 23/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. Contempla portaria pelo celular com QR Code online e contingência offline. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
+Condições da proposta em 23/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. Não contempla ingressos ou portaria. O pacote app adicional inclui o módulo de ingressos e portaria online/offline, além da experiência mobile. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
 
 O domínio, tarifas bancárias, contas Apple/Google, celulares e internet da portaria ficam por conta do clube. Serviços e funcionalidades adicionais terão orçamento separado. Integração financeira, exportação cadastral, escopo, cronograma e condições contratuais devem ser confirmados antes do fechamento. A apresentação e os dados usados pelo frontend contêm apenas a proposta comercial, sem composição de custos operacionais.
 

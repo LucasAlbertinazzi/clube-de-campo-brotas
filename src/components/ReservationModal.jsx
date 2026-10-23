@@ -118,7 +118,8 @@ export default function ReservationModal({ event, onClose }) {
               : "Emitir ingresso de demonstração"}
           </Button>
           <DemoNote>
-            O ingresso será adicionado ao portal e à prévia do aplicativo.
+            O ingresso ficará exclusivamente na prévia do aplicativo, fora do
+            portal web.
           </DemoNote>
         </>
       )}

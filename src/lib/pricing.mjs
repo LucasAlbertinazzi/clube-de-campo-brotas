@@ -22,12 +22,12 @@ export const webDelivery = Object.freeze([
   Object.freeze({
     title: "Desenvolvimento web",
     days: 75,
-    text: "Site, portal do associado, painel e portaria.",
+    text: "Site, portal, família, cobranças e agenda informativa. Sem ingressos.",
   }),
   Object.freeze({
-    title: "Homologação e piloto",
+    title: "Homologação web",
     days: 20,
-    text: "Testes, migração de ensaio e evento piloto.",
+    text: "Testes da gestão web e migração de ensaio.",
   }),
   Object.freeze({
     title: "Implantação web",
@@ -40,12 +40,12 @@ export const mobileDelivery = Object.freeze([
   Object.freeze({
     title: "Desenvolvimento do app",
     days: 60,
-    text: "Android e iOS integrados à plataforma web.",
+    text: "Android/iOS, ingressos no app e gestão integrada no painel.",
   }),
   Object.freeze({
     title: "Homologação do app",
     days: 20,
-    text: "Testes em aparelhos e validação com o clube.",
+    text: "Testes em aparelhos, compras no app e piloto da portaria online/offline.",
   }),
   Object.freeze({
     title: "Preparação e envio às lojas",

@@ -23,12 +23,12 @@ const protections = [
   {
     icon: "users",
     title: "Cada pessoa com sua permissão",
-    text: "Perfis separados para associado, secretaria, administração e portaria. Senhas protegidas por hash, encerramento de sessões e recuperação de acesso com verificação de identidade.",
+    text: "Perfis de associado, secretaria e administração no web; não sócios e portaria habilitados pelo pacote app. Senhas protegidas por hash, encerramento de sessões e recuperação de acesso com verificação de identidade.",
   },
   {
     icon: "qr",
-    title: "Validação online e contingência offline",
-    text: "Online, o servidor controla as entradas entre aparelhos. Offline, a lista protegida bloqueia repetição no mesmo celular; listas separadas por portaria e conferência de conflitos na sincronização organizam o uso de vários aparelhos.",
+    title: "Pacote app: validação online e offline",
+    text: "Somente com o pacote app. Online, o servidor controla as entradas entre aparelhos. Offline, a lista protegida bloqueia repetição no mesmo celular; listas separadas por portaria e conferência de conflitos na sincronização organizam o uso de vários aparelhos.",
   },
   {
     icon: "reset",
@@ -38,7 +38,7 @@ const protections = [
   {
     icon: "list",
     title: "Auditoria e acompanhamento",
-    text: "Histórico de ações administrativas e leituras na portaria. Monitoramento básico, alertas e atualizações de segurança incluídos na rotina de manutenção.",
+    text: "Histórico de ações administrativas e, com o pacote app, leituras na portaria. Monitoramento básico, alertas e atualizações de segurança incluídos na rotina de manutenção.",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function Investment() {
                   Um investimento previsível.
                 </>
               }
-              description="Pacote web com valores mantidos e aplicativo opcional com investimento próprio."
+              description="Web para gestão. App adicional para experiência mobile, ingressos e portaria. Veja exatamente o que cada pacote entrega."
             />
           </div>
           <span className="investment-reference">

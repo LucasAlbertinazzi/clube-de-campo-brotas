@@ -3,7 +3,7 @@ import { Icon, Tabs } from "../components/ui.jsx";
 import MobileApp, { appNavigation } from "../components/MobileApp.jsx";
 
 const descriptions = {
-  home: "Notícias e próximos encontros em uma tela simples.",
+  home: "Escolha um evento e compre ou emita seu ingresso no app.",
   bills: "Consulte mensalidades e experimente as formas de pagamento.",
   tickets: "Consulte online ou salve o QR Code para apresentar sem internet.",
   family: "Titular e dependentes vinculados ao mesmo acesso familiar.",
@@ -15,7 +15,7 @@ export default function AppShowcase() {
       <div className="container app-layout">
         <div className="app-section-copy">
           <span className="app-optional-label">
-            EVOLUÇÃO OPCIONAL · FORA DO PACOTE WEB
+            PACOTE APP · INGRESSOS EXCLUSIVOS NO APLICATIVO
           </span>
           <h2>
             O clube no
@@ -23,9 +23,10 @@ export default function AppShowcase() {
             seu bolso.
           </h2>
           <p>
-            Um aplicativo com áreas distintas para associados e não sócios.
-            Android e iOS com contratação, investimento e prazo próprios, após a
-            entrega web.
+            A base web organiza os dados. O app Android/iOS leva os serviços aos
+            associados e habilita eventos para não sócios com conta própria.
+            Compra, pagamento de ingressos e QR Code somente no app; gestão
+            integrada no painel e portaria incluídas neste pacote adicional.
           </p>
           <Tabs
             className="app-audience-tabs"
@@ -93,7 +94,7 @@ export default function AppShowcase() {
         <div className="app-device-column">
           <MobileApp />
           <p className="device-caption">
-            Um app · Dois perfis · Contratação opcional · Dados fictícios
+            Pacote app adicional · Dois perfis · Ingressos somente no aplicativo
           </p>
         </div>
       </div>

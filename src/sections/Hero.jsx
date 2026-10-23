@@ -19,19 +19,19 @@ export default function Hero() {
               <span>Menos distância.</span>
             </h1>
             <p>
-              Site, portal do associado e painel web conectados. Da notícia ao
-              ingresso, uma experiência mais simples para quem faz parte do
-              clube. Aplicativo Android e iOS como evolução opcional, com
-              contratação separada.
+              Duas etapas que se completam: o web organiza o clube, os cadastros
+              e as cobranças. O pacote app opcional leva os serviços ao celular
+              e acrescenta ingressos, compras e portaria. Cada pacote com
+              investimento e prazo próprios.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#experiencias">
                 Conhecer a experiência
                 <Icon name="arrow" size={18} />
               </a>
-              <a className="button button-secondary" href="#portaria">
-                <Icon name="scan" size={20} />
-                Testar a portaria
+              <a className="button button-secondary" href="#investimento">
+                <Icon name="list" size={20} />
+                Comparar os pacotes
               </a>
             </div>
             <span className="hero-disclosure">
@@ -79,6 +79,9 @@ export default function Hero() {
               </div>
             </BrowserFrame>
             <MiniPhone />
+            <span className="hero-package-label">
+              Prévia do pacote app opcional
+            </span>
           </div>
         </div>
       </section>
@@ -92,13 +95,13 @@ export default function Hero() {
             },
             {
               icon: "phone",
-              title: "Serviços no celular",
-              text: "Mensalidades, notícias e ingressos sempre por perto.",
+              title: "Pacote app adicional",
+              text: "Serviços no celular e ingressos exclusivos no app.",
             },
             {
               icon: "scan",
-              title: "Portaria mais leve",
-              text: "Entrada pelo celular, com leitura do QR Code.",
+              title: "Juntos na mesma operação",
+              text: "Web organiza; com o app, vendas e entradas se conectam.",
             },
           ].map((item) => (
             <div className="benefit" key={item.title}>

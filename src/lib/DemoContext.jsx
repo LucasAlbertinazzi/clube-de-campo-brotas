@@ -37,6 +37,7 @@ export function DemoProvider({ children }) {
   const current = useRef(state);
   const [toast, setToast] = useState("");
   const [experience, setExperience] = useState("member");
+  const [demoPackage, setDemoPackage] = useState("web");
   const [memberPage, setMemberPage] = useState("bills");
   const [adminPage, setAdminPage] = useState("events");
   const [appPage, setAppPage] = useState("tickets");
@@ -220,6 +221,8 @@ export function DemoProvider({ children }) {
         state,
         actions,
         notify,
+        demoPackage,
+        setDemoPackage,
         experience,
         setExperience,
         memberPage,

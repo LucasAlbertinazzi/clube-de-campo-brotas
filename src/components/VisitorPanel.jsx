@@ -17,7 +17,7 @@ const navigation = [
   { id: "purchases", label: "Minhas compras", icon: "card" },
 ];
 
-export default function VisitorPanel({ compact = false }) {
+export default function VisitorPanel({ compact = true }) {
   const {
     state,
     actions,
@@ -89,9 +89,7 @@ export default function VisitorPanel({ compact = false }) {
                 setMode(value);
                 setError("");
               }}
-              label={
-                compact ? "Acesso não sócio no app" : "Acesso não sócio no site"
-              }
+              label={"Acesso não sócio no app"}
             />
             <p>
               Experimente com dados fictícios. Não é necessário ser associado ou
@@ -183,7 +181,7 @@ export default function VisitorPanel({ compact = false }) {
             items={navigation}
             value={page}
             onChange={setPage}
-            label={compact ? "Menu não sócio no app" : "Menu não sócio no site"}
+            label={"Menu não sócio no app"}
             className="visitor-navigation"
           />
           {page === "events" && (

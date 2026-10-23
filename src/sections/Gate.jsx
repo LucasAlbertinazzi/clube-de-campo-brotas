@@ -67,14 +67,18 @@ export default function Gate() {
     <section className="section gate-section section-anchor" id="portaria">
       <div className="container gate-layout">
         <div className="gate-copy">
+          <span className="investment-eyebrow">
+            PACOTE APP · PORTARIA DA EQUIPE
+          </span>
           <h2>
             A entrada acontece
             <br />
             pelo celular.
           </h2>
           <p>
-            A câmera lê o QR Code e registra a entrada. Com a lista baixada
-            antes do evento, a portaria continua mesmo sem internet.
+            Disponível somente com o pacote app, fora do web básico. A equipe lê
+            o QR Code e registra a entrada. Com a lista baixada antes do evento,
+            a portaria continua mesmo sem internet.
           </p>
           <Tabs
             className="gate-scenarios"

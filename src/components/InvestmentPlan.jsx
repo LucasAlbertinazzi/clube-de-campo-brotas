@@ -1,4 +1,6 @@
 import { Icon } from "./ui.jsx";
+import PackageComparison from "./PackageComparison.jsx";
+import { webScope } from "../lib/packages.mjs";
 import {
   proposal,
   mobileProposal,
@@ -10,11 +12,8 @@ import {
 } from "../lib/pricing.mjs";
 
 const scope = [
-  "Site, notícias, fotos e documentos",
-  "Associados, dependentes e administração",
-  "Consulta e integração de pagamentos",
-  "Eventos, ingressos e portaria online e offline pelo celular",
-  "Login de não sócios e compra de ingressos em eventos abertos",
+  ...webScope,
+  "Consulta e integração de pagamentos das mensalidades",
   `Manutenção e até ${proposal.supportHours} horas de atendimento por mês`,
 ];
 const services = [
@@ -55,6 +54,7 @@ function Disclosure({ title, children }) {
 export default function InvestmentPlan() {
   return (
     <>
+      <PackageComparison />
       <div className="investment-plan-grid">
         <article className="investment-main-card">
           <div className="investment-card-label">
@@ -66,7 +66,8 @@ export default function InvestmentPlan() {
             <span>/ mês</span>
           </p>
           <p className="investment-price-description">
-            A plataforma web completa. Aplicativo contratado separadamente.
+            A base de gestão do clube. Sem vendas de ingressos, QR Code ou
+            portaria.
           </p>
           <div className="investment-entry">
             <div>
@@ -98,7 +99,8 @@ export default function InvestmentPlan() {
                 Hospedagem, manutenção, backups e segurança incluídos na
                 mensalidade.
               </strong>{" "}
-              O aplicativo Android/iOS não está incluído neste pacote.
+              Aplicativo, cadastro de não sócios, ingressos e portaria pertencem
+              ao pacote app adicional.
             </span>
           </p>
         </article>
@@ -142,21 +144,24 @@ export default function InvestmentPlan() {
       <article className="mobile-offer" aria-labelledby="mobile-offer-title">
         <div className="mobile-offer-copy">
           <span className="investment-eyebrow">
-            OPCIONAL · CONTRATAÇÃO SEPARADA
+            PACOTE APP · ADICIONAL AO WEB
           </span>
-          <h3 id="mobile-offer-title">Aplicativo Android e iOS</h3>
+          <h3 id="mobile-offer-title">App Android/iOS + módulo de ingressos</h3>
           <p>
-            A prévia continua na apresentação para mostrar a evolução possível.
-            O clube pode contratar somente a plataforma web.
+            O web resolve a gestão. O pacote app acrescenta participação em
+            eventos, conveniência no celular e portaria integrada. Pode ser
+            contratado após a base web; não é um sistema independente.
           </p>
           <ul>
             <li>
-              Áreas de associado e não sócio no mesmo app, integradas ao web.
-              Família e cobranças para associados; eventos, compras e ingressos
-              para visitantes.
+              Compras, pagamentos de ingressos e QR Code exclusivamente no app.
+              Associados e não sócios usam áreas próprias; o site e o portal não
+              oferecem compra nem exibição de ingresso.
             </li>
             <li>
-              Notificações e ingresso salvo para mostrar o QR Code sem internet.
+              Android/iOS, notificações e ingresso salvo pelo associado. Gestão
+              de valores, capacidade e inscritos no painel, mais portaria
+              online/offline: recursos habilitados somente por este pacote.
             </li>
             <li>
               Desenvolvimento iniciado após a implantação e o aceite web,
@@ -177,7 +182,7 @@ export default function InvestmentPlan() {
               <dd>{wholeMoney(mobileProposal.developmentCents)}</dd>
             </div>
             <div>
-              <dt>Manutenção adicional após o lançamento</dt>
+              <dt>Pacote app adicional após lançamento e aceite</dt>
               <dd>
                 {wholeMoney(mobileProposal.monthlyCents)}
                 <small> / mês</small>
@@ -226,9 +231,10 @@ export default function InvestmentPlan() {
               de lançamento do aplicativo, somente se contratado.
             </li>
             <li>
-              <strong>Portaria:</strong> celulares e internet para preparar as
-              listas e sincronizar as entradas, fornecidos pelo clube. A leitura
-              poderá continuar offline com a lista já baixada.
+              <strong>Portaria, somente no pacote app:</strong> celulares e
+              internet para preparar as listas e sincronizar as entradas,
+              fornecidos pelo clube. A leitura poderá continuar offline com a
+              lista já baixada.
             </li>
             <li>
               <strong>Serviços adicionais:</strong> envios pagos de SMS e
@@ -246,10 +252,12 @@ export default function InvestmentPlan() {
               meses.
             </li>
             <li>
-              <strong>Dois escopos independentes:</strong> o pacote web inclui
-              site, portal, administração e portaria com QR Code online/offline.
-              O aplicativo do associado é opcional, tem preço próprio e só
-              começa após o aceite web e contratação específica.
+              <strong>Dois pacotes complementares:</strong> o web inclui site,
+              portal, família, cobranças e administração básica, com agenda
+              informativa. O pacote app adicional inclui Android/iOS,
+              notificações, não sócios, ingressos e portaria. A gestão de
+              ingressos no painel também depende desse pacote; a compra e o QR
+              ficam somente no app.
             </li>
             <li>
               <strong>Início dos prazos:</strong> contagem após contratação,
@@ -272,7 +280,8 @@ export default function InvestmentPlan() {
             <li>
               <strong>Antes da implantação:</strong> confirmar a origem das
               cobranças, as integrações disponíveis, a exportação dos cadastros
-              e as regras dos ingressos, com validação em um evento piloto.
+              na etapa web. Regras de ingressos e evento piloto da portaria
+              pertencem à etapa do pacote app, se contratado.
             </li>
             <li>
               <strong>Contrato:</strong> escopo final, cronograma, condições de

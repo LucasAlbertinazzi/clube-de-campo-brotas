@@ -3,6 +3,7 @@ import { useDemo } from "../lib/DemoContext.jsx";
 import { formatDate } from "../lib/model.mjs";
 import { Avatar, Brand, Button, DemoNote, Icon, Modal, Status } from "./ui.jsx";
 import EventForm from "./EventForm.jsx";
+import { allowsCapability } from "../lib/packages.mjs";
 
 const navigation = [
   { id: "overview", label: "Visão geral", icon: "dashboard" },
@@ -14,7 +15,17 @@ const navigation = [
 ];
 
 export default function AdminPanel() {
-  const { state, actions, adminPage, setAdminPage } = useDemo();
+  const { state, actions, adminPage, setAdminPage, demoPackage } = useDemo();
+  const ticketing = allowsCapability("ticketManagement", {
+    includeMobile: demoPackage === "combined",
+    channel: "admin",
+  });
+  const visibleNavigation = navigation.filter(
+    (item) => item.id !== "gate" || ticketing,
+  );
+  const page = visibleNavigation.some((item) => item.id === adminPage)
+    ? adminPage
+    : "events";
   const [creating, setCreating] = useState(false);
   const [selected, setSelected] = useState(null);
   const [query, setQuery] = useState("");
@@ -23,7 +34,7 @@ export default function AdminPanel() {
     "Confira os próximos encontros e aproveite bons momentos em família.",
   );
   const current =
-    navigation.find((item) => item.id === adminPage) ?? navigation[0];
+    visibleNavigation.find((item) => item.id === page) ?? navigation[0];
   const members = state.family.filter((person) =>
     person.name
       .toLocaleLowerCase("pt-BR")
@@ -34,10 +45,10 @@ export default function AdminPanel() {
       <aside className="product-sidebar">
         <Brand compact />
         <nav aria-label="Menu da administração">
-          {navigation.map((item) => (
+          {visibleNavigation.map((item) => (
             <button
               type="button"
-              className={adminPage === item.id ? "is-active" : ""}
+              className={page === item.id ? "is-active" : ""}
               key={item.id}
               onClick={() => setAdminPage(item.id)}
             >
@@ -69,18 +80,20 @@ export default function AdminPanel() {
                 {
                   {
                     overview: "Uma visão conectada dos dados desta prévia.",
-                    events: "Da publicação à entrada dos participantes.",
+                    events: ticketing
+                      ? "Pacote app: configure ingressos no painel. Compras exclusivamente no aplicativo."
+                      : "Agenda informativa do pacote web. Sem venda ou emissão de ingressos.",
                     members:
                       "Titulares e dependentes no mesmo cadastro familiar.",
                     posts:
                       "As novidades publicadas aparecem na prévia do site.",
                     support: "Solicitações enviadas na área do associado.",
                     gate: "Acompanhe as entradas registradas nesta prévia.",
-                  }[adminPage]
+                  }[page]
                 }
               </p>
             </div>
-            {adminPage === "events" && (
+            {page === "events" && (
               <Button
                 className="small-button"
                 icon="plus"
@@ -90,7 +103,7 @@ export default function AdminPanel() {
               </Button>
             )}
           </div>
-          {adminPage === "overview" && (
+          {page === "overview" && (
             <>
               <div className="summary-row">
                 <div className="summary-box">
@@ -106,18 +119,24 @@ export default function AdminPanel() {
                     </strong>
                   </span>
                 </div>
-                <div className="summary-box">
-                  <Icon name="ticket" />
-                  <span>
-                    Ingressos emitidos<strong>{state.tickets.length}</strong>
-                  </span>
-                </div>
-                <div className="summary-box">
-                  <Icon name="scan" />
-                  <span>
-                    Entradas registradas<strong>{state.checkins.length}</strong>
-                  </span>
-                </div>
+                {ticketing && (
+                  <>
+                    <div className="summary-box">
+                      <Icon name="ticket" />
+                      <span>
+                        Ingressos emitidos
+                        <strong>{state.tickets.length}</strong>
+                      </span>
+                    </div>
+                    <div className="summary-box">
+                      <Icon name="scan" />
+                      <span>
+                        Entradas registradas
+                        <strong>{state.checkins.length}</strong>
+                      </span>
+                    </div>{" "}
+                  </>
+                )}
               </div>
               <div className="admin-overview-actions">
                 <button type="button" onClick={() => setAdminPage("events")}>
@@ -136,7 +155,7 @@ export default function AdminPanel() {
               </DemoNote>
             </>
           )}
-          {adminPage === "events" && (
+          {page === "events" && (
             <>
               <div className="table-scroll">
                 <table className="data-table">
@@ -144,7 +163,7 @@ export default function AdminPanel() {
                     <tr>
                       <th>Evento</th>
                       <th>Data</th>
-                      <th>Inscritos</th>
+                      {ticketing && <th>Inscritos</th>}
                       <th>Situação</th>
                       <th>
                         <span className="sr-only">Ações</span>
@@ -161,16 +180,18 @@ export default function AdminPanel() {
                           </small>
                         </td>
                         <td>{formatDate(event.date)}</td>
-                        <td>
-                          {
-                            state.tickets.filter(
-                              (ticket) =>
-                                ticket.eventId === event.id &&
-                                ticket.status !== "cancelled",
-                            ).length
-                          }{" "}
-                          / {event.capacity}
-                        </td>
+                        {ticketing && (
+                          <td>
+                            {
+                              state.tickets.filter(
+                                (ticket) =>
+                                  ticket.eventId === event.id &&
+                                  ticket.status !== "cancelled",
+                              ).length
+                            }{" "}
+                            / {event.capacity}
+                          </td>
+                        )}
                         <td>
                           <Status
                             tone={event.status === "draft" ? "amber" : "green"}
@@ -189,7 +210,7 @@ export default function AdminPanel() {
                             >
                               Publicar
                             </button>
-                          ) : (
+                          ) : ticketing ? (
                             <button
                               type="button"
                               className="text-button"
@@ -197,6 +218,8 @@ export default function AdminPanel() {
                             >
                               Ver inscritos
                             </button>
+                          ) : (
+                            <span className="muted">Agenda publicada</span>
                           )}
                         </td>
                       </tr>
@@ -210,7 +233,7 @@ export default function AdminPanel() {
               </DemoNote>
             </>
           )}
-          {adminPage === "members" && (
+          {page === "members" && (
             <>
               <label className="search-field">
                 <Icon name="search" size={18} />
@@ -243,7 +266,7 @@ export default function AdminPanel() {
               </DemoNote>
             </>
           )}
-          {adminPage === "posts" && (
+          {page === "posts" && (
             <>
               <form
                 className="support-form"
@@ -281,7 +304,7 @@ export default function AdminPanel() {
               </p>
             </>
           )}
-          {adminPage === "support" &&
+          {page === "support" &&
             (state.messages.length ? (
               <div className="notice-list">
                 {state.messages.map((message) => (
@@ -304,7 +327,7 @@ export default function AdminPanel() {
                 </p>
               </div>
             ))}
-          {adminPage === "gate" && (
+          {page === "gate" && (
             <>
               <a className="button button-primary" href="#portaria">
                 Experimentar a leitura pelo celular
@@ -337,10 +360,10 @@ export default function AdminPanel() {
       </div>
       {creating && (
         <Modal title="Novo evento" wide onClose={() => setCreating(false)}>
-          <EventForm />
+          <EventForm ticketing={ticketing} />
         </Modal>
       )}
-      {selected && (
+      {ticketing && selected && (
         <Modal
           title={`Inscritos · ${selected.name}`}
           onClose={() => setSelected(null)}

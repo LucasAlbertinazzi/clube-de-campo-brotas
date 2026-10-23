@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { useDemo } from "../lib/DemoContext.jsx";
-import { shortDate, formatMoney } from "../lib/model.mjs";
+import { shortDate } from "../lib/model.mjs";
 import { Brand, Button, DemoNote, Icon, Modal, asset } from "./ui.jsx";
-import ReservationModal from "./ReservationModal.jsx";
 
 export default function SitePreview() {
-  const { state, setExperience, setMemberPage, setVisitorEventId } = useDemo();
+  const { state, setExperience, setMemberPage } = useDemo();
   const [view, setView] = useState("home");
-  const [event, setEvent] = useState(null);
   const [photo, setPhoto] = useState(null);
   const published = state.events.filter((item) => item.status === "published");
   const enter = () => {
     setExperience("member");
     setMemberPage("bills");
-  };
-  const enterVisitor = (item = null) => {
-    setVisitorEventId(item?.id ?? null);
-    setExperience("visitor");
   };
   return (
     <div className="site-preview">
@@ -74,14 +68,13 @@ export default function SitePreview() {
                 Uma nova forma de acompanhar o clube: programação, fotos e
                 serviços, no computador e no celular.
               </p>
-              <button
-                className="text-button site-visitor-link"
-                type="button"
-                onClick={() => enterVisitor()}
-              >
-                Não sou sócio · Entrar ou criar cadastro{" "}
-                <Icon name="arrow" size={17} />
-              </button>
+              <p className="site-visitor-link">
+                Agenda informativa no web. Ingressos e cadastro de não sócios
+                somente no app opcional.
+              </p>
+              <a className="text-button" href="#aplicativo">
+                Conhecer o pacote app <Icon name="arrow" size={17} />
+              </a>
             </div>
             <div className="site-story-links">
               <a
@@ -113,8 +106,8 @@ export default function SitePreview() {
           <div className="product-title">
             <h3>Vamos nos encontrar?</h3>
             <p>
-              Agenda ilustrativa. Escolha um evento e experimente emitir seu
-              ingresso.
+              Agenda informativa ilustrativa. Consulte a programação do clube. O
+              web não oferece compra, emissão ou exibição de ingressos.
             </p>
           </div>
           <div className="event-cards">
@@ -131,29 +124,14 @@ export default function SitePreview() {
                   </span>
                   <h4>{item.name}</h4>
                   <p>{item.description}</p>
-                  <button
-                    className="text-button"
-                    type="button"
-                    onClick={() => setEvent(item)}
-                  >
-                    Participar como associado
-                    <Icon name="arrow" size={16} />
-                  </button>
-                  {item.audience === "public" && (
-                    <>
-                      <p className="site-public-price">
-                        Aberto ao público · Não sócio:{" "}
-                        {formatMoney(item.guestPrice)}
-                      </p>
-                      <button
-                        className="text-button"
-                        type="button"
-                        onClick={() => enterVisitor(item)}
-                      >
-                        Comprar como não sócio <Icon name="arrow" size={16} />
-                      </button>
-                    </>
-                  )}
+                  <p className="site-public-price">
+                    {item.location} · {item.time}
+                  </p>
+                  <span className="event-category">
+                    {item.audience === "public"
+                      ? "Evento aberto ao público"
+                      : "Evento de associados"}
+                  </span>
                 </div>
               </article>
             ))}
@@ -219,9 +197,6 @@ export default function SitePreview() {
             ))}
           </div>
         </div>
-      )}
-      {event && (
-        <ReservationModal event={event} onClose={() => setEvent(null)} />
       )}
       {photo && (
         <Modal title="Paisagens do clube" wide onClose={() => setPhoto(null)}>

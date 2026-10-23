@@ -3,15 +3,11 @@ import { useDemo } from "../lib/DemoContext.jsx";
 import { formatDate, formatMoney } from "../lib/model.mjs";
 import { Avatar, Brand, Button, DemoNote, Icon, Modal, Status } from "./ui.jsx";
 import PaymentModal from "./PaymentModal.jsx";
-import TicketCard from "./TicketCard.jsx";
-import { memberTickets } from "../lib/visitors.mjs";
 
 const navigation = [
   { id: "home", label: "Início", icon: "home" },
   { id: "family", label: "Minha família", icon: "users" },
   { id: "bills", label: "Cobranças", icon: "card" },
-  { id: "tickets", label: "Meus ingressos", icon: "ticket" },
-  { id: "purchases", label: "Minhas compras", icon: "list" },
   { id: "news", label: "Comunicados", icon: "news" },
   { id: "support", label: "Atendimento", icon: "support" },
 ];
@@ -299,19 +295,13 @@ export default function MemberPanel() {
         </div>
         <div className="product-content">
           <div className="product-title">
-            <h3>
-              {current.label === "Meus ingressos"
-                ? "Meus ingressos"
-                : current.label}
-            </h3>
+            <h3>{current.label}</h3>
             <p>
               {
                 {
                   home: "Que bom ter você por aqui.",
                   family: "Sua família, com os dados sempre por perto.",
                   bills: "Mensalidades e pagamentos em um só lugar.",
-                  tickets: "Tudo pronto para o seu próximo encontro.",
-                  purchases: "Inscrições e compras simuladas da sua família.",
                   news: "As novidades e os avisos do clube.",
                   support: "Um canal direto com a secretaria.",
                 }[memberPage]
@@ -321,76 +311,6 @@ export default function MemberPanel() {
           {memberPage === "bills" && <BillsView />}
           {memberPage === "family" && <FamilyView />}
           {memberPage === "support" && <SupportView />}
-          {memberPage === "tickets" && (
-            <>
-              <div className="portal-tickets">
-                {memberTickets(state).map((ticket) => (
-                  <TicketCard
-                    compact
-                    downloadable
-                    ticket={ticket}
-                    event={state.events.find(
-                      (item) => item.id === ticket.eventId,
-                    )}
-                    key={ticket.id}
-                  />
-                ))}
-              </div>
-              <DemoNote>
-                Ingressos fictícios, sem validade para acesso ao clube.
-              </DemoNote>
-            </>
-          )}
-          {memberPage === "purchases" && (
-            <>
-              <div className="table-scroll">
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>Evento</th>
-                      <th>Participante</th>
-                      <th>Valor</th>
-                      <th>Situação</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {memberTickets(state).map((ticket) => (
-                      <tr key={ticket.id}>
-                        <td>
-                          {
-                            state.events.find(
-                              (event) => event.id === ticket.eventId,
-                            )?.name
-                          }
-                        </td>
-                        <td>{ticket.name}</td>
-                        <td>
-                          {ticket.amount
-                            ? formatMoney(ticket.amount)
-                            : "Gratuito"}
-                        </td>
-                        <td>
-                          <Status tone="green">Confirmado na prévia</Status>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <Button
-                variant="secondary"
-                icon="ticket"
-                className="purchases-ticket-button"
-                onClick={() => setMemberPage("tickets")}
-              >
-                Ver meus ingressos
-              </Button>
-              <DemoNote>
-                As compras e confirmações são fictícias. Nenhum valor foi
-                cobrado.
-              </DemoNote>
-            </>
-          )}
           {memberPage === "news" && (
             <div className="notice-list">
               {state.posts.map((post) => (
@@ -409,12 +329,12 @@ export default function MemberPanel() {
               <div className="welcome-banner">
                 <h4>O clube mais perto da sua família</h4>
                 <p>Confira seus serviços e aproveite o próximo encontro.</p>
-                <Button icon="ticket" onClick={() => setMemberPage("tickets")}>
-                  Ver meus ingressos
+                <Button icon="card" onClick={() => setMemberPage("bills")}>
+                  Consultar cobranças
                 </Button>
               </div>
               <div className="quick-links">
-                {navigation.slice(1, 5).map((item) => (
+                {navigation.slice(1).map((item) => (
                   <button
                     type="button"
                     key={item.id}
