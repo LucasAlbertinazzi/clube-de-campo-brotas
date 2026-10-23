@@ -28,14 +28,14 @@ test("contratação web não cobra o app opcional automaticamente", () => {
   assert.equal(mobileProposal.status, "offered");
   assert.equal(recurringTotal(), 249000);
   assert.equal(recurringTotal({ includeMobile: false }), 249000);
-  assert.equal(recurringTotal({ includeMobile: true }), 298000);
+  assert.equal(recurringTotal({ includeMobile: true }), 448000);
   assert.equal(
     wholeMoney(mobileProposal.developmentCents).replace(/\s/g, " "),
     "R$ 9.900",
   );
   assert.equal(
     wholeMoney(mobileProposal.monthlyCents).replace(/\s/g, " "),
-    "R$ 490",
+    "R$ 1.990",
   );
 });
 

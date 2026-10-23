@@ -6,12 +6,14 @@ Desenvolvido pela Nevuma Tech.
 
 Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram mantidos por orientação do responsável; os prazos e a oferta mobile abaixo compõem a revisão autorizada para publicação em 23/10/2026. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
 
-| Oferta                              | Desenvolvimento / implantação | Manutenção                                     | Prazo proposto                                                 |
-| ----------------------------------- | ----------------------------- | ---------------------------------------------- | -------------------------------------------------------------- |
-| Site, portal, painel e portaria web | R$ 7.900                      | R$ 2.490/mês por 48 meses                      | 120 dias corridos até entrada em produção                      |
-| App Android/iOS opcional            | R$ 9.900                      | R$ 490/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
+| Oferta                              | Desenvolvimento / implantação | Manutenção                                       | Prazo proposto                                                 |
+| ----------------------------------- | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
+| Site, portal, painel e portaria web | R$ 7.900                      | R$ 2.490/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
+| App Android/iOS opcional            | R$ 9.900                      | R$ 1.990/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
 
 O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web é suficiente para usar site, portal, painel e portaria online/offline. O desenvolvimento do app, ingresso salvo no app e notificações mobile não pertencem ao pacote web. A vigência e o suporte do app serão definidos no contrato próprio.
+
+A revisão autorizada da mensalidade mobile é R$ 1.990. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 4.480. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
 
 As estimativas pressupõem escopo aprovado e disponibilização de conteúdo, dados e acessos. A cobrança web começa após implantação e aceite; a adicional mobile, após lançamento e aceite. As condições serão formalizadas em contrato. A implantação pública do app depende da aprovação das lojas e do aceite do clube.
 
