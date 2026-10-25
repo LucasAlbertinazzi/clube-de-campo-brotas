@@ -7,7 +7,7 @@ import {
   wholeMoney,
 } from "../lib/pricing.mjs";
 
-export default function PackageComparison() {
+export default function PackageComparison({ showPrices = false }) {
   return (
     <article
       className="package-comparison"
@@ -32,12 +32,18 @@ export default function PackageComparison() {
               <th scope="col">
                 Somente web
                 <br />
-                <strong>{wholeMoney(proposal.monthlyCents)}/mês</strong>
+                {showPrices && (
+                  <strong>{wholeMoney(proposal.monthlyCents)}/mês</strong>
+                )}
               </th>
               <th scope="col">
                 Com o pacote app
                 <br />
-                <strong>+ {wholeMoney(mobileProposal.monthlyCents)}/mês</strong>
+                {showPrices && (
+                  <strong>
+                    + {wholeMoney(mobileProposal.monthlyCents)}/mês
+                  </strong>
+                )}
               </th>
             </tr>
           </thead>
@@ -82,10 +88,12 @@ export default function PackageComparison() {
         </div>
       </div>
       <p className="package-total">
-        <strong>
-          Web + app: {wholeMoney(recurringTotal({ includeMobile: true }))}/mês
-          após os respectivos aceites.
-        </strong>{" "}
+        {showPrices && (
+          <strong>
+            Web + app: {wholeMoney(recurringTotal({ includeMobile: true }))}/mês
+            após os respectivos aceites.
+          </strong>
+        )}{" "}
         O app é adicional à base web e tem implantação e cronograma próprios. Só
         web não habilita ingressos nem portaria.
       </p>

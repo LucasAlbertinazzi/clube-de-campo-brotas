@@ -1,14 +1,7 @@
-import { useState } from "react";
-import { Icon, SectionHeading, Tabs } from "../components/ui.jsx";
+import { Icon, SectionHeading } from "../components/ui.jsx";
 import SecurityPreview from "../components/SecurityPreview.jsx";
-import { proposal } from "../lib/pricing.mjs";
-import InvestmentPlan from "../components/InvestmentPlan.jsx";
 import "./investment.css";
 
-const tabs = [
-  { id: "investment", label: "Investimento", icon: "card" },
-  { id: "security", label: "Segurança e 2FA", icon: "shield" },
-];
 const protections = [
   {
     icon: "shield",
@@ -117,48 +110,19 @@ function SecurityPlan() {
   );
 }
 
-export default function Investment() {
-  const [tab, setTab] = useState("investment");
+export default function Security() {
   return (
     <section
       className="section investment-section section-anchor"
-      id="investimento"
+      id="seguranca"
     >
+      <div id="investimento" className="section-anchor" aria-hidden="true" />
       <div className="container">
-        <div className="investment-section-heading">
-          <div>
-            <span className="investment-eyebrow">INVESTIMENTO E SEGURANÇA</span>
-            <SectionHeading
-              title={
-                <>
-                  Um clube conectado.
-                  <br />
-                  Um investimento previsível.
-                </>
-              }
-              description="Web para gestão. App adicional para experiência mobile, ingressos e portaria. Veja exatamente o que cada pacote entrega."
-            />
-          </div>
-          <span className="investment-reference">
-            <Icon name="calendar" size={16} />
-            Referência · {proposal.date}
-          </span>
-        </div>
-        <Tabs
-          className="investment-tabs"
-          label="Detalhes de investimento e segurança"
-          items={tabs}
-          value={tab}
-          onChange={setTab}
+        <SectionHeading
+          title="Proteção em cada acesso."
+          description="Segurança prevista para o web e, se contratado, para o app. Explore a demonstração de autenticação em dois fatores."
         />
-        <div
-          className="investment-panel"
-          role="tabpanel"
-          aria-label={tabs.find((item) => item.id === tab).label}
-          tabIndex={0}
-        >
-          {tab === "investment" ? <InvestmentPlan /> : <SecurityPlan />}
-        </div>
+        <SecurityPlan />
       </div>
     </section>
   );

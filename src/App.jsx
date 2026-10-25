@@ -6,14 +6,16 @@ import AppShowcase from "./sections/AppShowcase.jsx";
 import Events from "./sections/Events.jsx";
 import Gate from "./sections/Gate.jsx";
 import Roadmap from "./sections/Roadmap.jsx";
-import Investment from "./sections/Investment.jsx";
+import Security from "./sections/Investment.jsx";
+import PackageComparison from "./components/PackageComparison.jsx";
 
 const links = [
   { href: "#proposta", label: "A proposta" },
   { href: "#experiencias", label: "Experiências" },
   { href: "#eventos", label: "Ingressos" },
   { href: "#implantacao", label: "Implantação" },
-  { href: "#investimento", label: "Investimento" },
+  { href: "#pacotes", label: "Pacotes" },
+  { href: "#seguranca", label: "Segurança" },
 ];
 function Header() {
   const [open, setOpen] = useState(false);
@@ -82,11 +84,20 @@ export default function App() {
       <Header />
       <main id="conteudo">
         <Hero />
+        <section
+          className="section section-anchor"
+          id="pacotes"
+          aria-label="Escopo dos pacotes"
+        >
+          <div className="container">
+            <PackageComparison />
+          </div>
+        </section>
         <Experiences />
         <AppShowcase />
         <Events />
         <Gate />
-        <Investment />
+        <Security />
         <Roadmap />
       </main>
     </>

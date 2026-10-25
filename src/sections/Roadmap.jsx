@@ -1,12 +1,6 @@
 import { Brand, Icon, SectionHeading } from "../components/ui.jsx";
 import DeliverySchedule from "../components/DeliverySchedule.jsx";
-import {
-  proposal,
-  mobileProposal,
-  wholeMoney,
-  webDelivery,
-  mobileDelivery,
-} from "../lib/pricing.mjs";
+import { webDelivery, mobileDelivery } from "../lib/pricing.mjs";
 import "./delivery.css";
 
 const faq = [
@@ -20,11 +14,11 @@ const faq = [
   ],
   [
     "A mensalidade já inclui a nuvem e a segurança?",
-    `Sim. O pacote web mantém implantação de ${wholeMoney(proposal.implementationCents)} e mensalidade de ${wholeMoney(proposal.monthlyCents)} por ${proposal.termMonths} meses, com hospedagem, banco de dados, proteção, backups e manutenção. O pacote web não inclui app, ingressos ou portaria. Domínio e tarifas bancárias são separados.`,
+    "Sim. A operação web prevê hospedagem, banco de dados, proteção, backups e manutenção, conforme o escopo contratado. Aplicativo, ingressos e portaria pertencem ao pacote app adicional. Domínio e tarifas bancárias são separados.",
   ],
   [
     "Preciso contratar o aplicativo junto com o web?",
-    `Não. O clube pode contratar somente o site, o portal, a agenda informativa e a administração básica. Ingressos e portaria ficam fora desse escopo. Android/iOS é opcional, após implantação e aceite web e contratação própria. A proposta separada é ${wholeMoney(mobileProposal.developmentCents)} de desenvolvimento e ${wholeMoney(mobileProposal.monthlyCents)}/mês de manutenção adicional após lançamento e aceite.`,
+    "Não. O clube pode contratar somente o site, o portal, a agenda informativa e a administração básica. Ingressos e portaria ficam fora desse escopo. Android/iOS é uma etapa opcional, após implantação e aceite web e contratação própria.",
   ],
   [
     "O portal e o aplicativo poderão usar dois fatores?",

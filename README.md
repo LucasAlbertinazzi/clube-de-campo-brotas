@@ -2,6 +2,13 @@
 
 Desenvolvido pela Nevuma Tech.
 
+## Duas apresentações
+
+- **Funcionalidades e demonstrações:** https://lucasalbertinazzi.github.io/clube-de-campo-brotas/ — sem valores da proposta e sem link para a página comercial. Mantém o escopo dos pacotes, segurança e os prazos.
+- **Proposta comercial:** https://lucasalbertinazzi.github.io/clube-de-campo-brotas/comercial/ — implantação, mensalidades, escopo, condições e cronograma.
+
+O build gera dois documentos HTML e entradas independentes. Os valores fictícios de mensalidades e ingressos nas demonstrações funcionais continuam ilustrativos; não são os preços de contratação da plataforma. Os valores aprovados são exibidos apenas na página comercial, sem mudança das condições. A separação é editorial: as duas páginas são públicas.
+
 ## Proposta comercial de 23/10/2026
 
 Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram mantidos por orientação do responsável; os prazos e a oferta mobile abaixo compõem a revisão autorizada para publicação em 23/10/2026. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
@@ -32,7 +39,10 @@ pnpm install
 pnpm dev
 pnpm test
 pnpm build
+pnpm preview
 ```
+
+No desenvolvimento e na prévia do build, abra `/` e `/comercial/`. A configuração Vite gera `dist/index.html` e `dist/comercial/index.html`, com scripts, estilos e caminhos de imagens compatíveis com GitHub Pages. Somente `dist/` é publicado pelo workflow.
 
 ## Explorar os fluxos
 
@@ -43,8 +53,8 @@ pnpm build
 5. Em **Aplicativo → Não sou sócio**, entre com `joao@example.com` e código `123456`, ou crie uma conta fictícia `@example.com`. Compre em um evento aberto: **Comprar ingresso → Continuar compra → Simular Pix e emitir ingresso**.
 6. Consulte **Meus ingressos** e **Minhas compras** no app. Outra conta começa sem os ingressos da anterior; o visitante não acessa família ou mensalidades do associado.
 7. Na seção **Portaria**, identificada como pacote app, experimente QR válido, repetido e inválido. **Baixar lista do evento → Simular modo offline → Reconectar e sincronizar** demonstra a contingência. **Ativar câmera** depende de autorização; o vídeo é processado localmente e encerrado ao parar ou concluir a leitura.
-8. Em **Investimento**, confira o comparativo de pacotes, os valores de R$ 2.490 web e R$ 3.500 adicionais pelo app, total R$ 5.990/mês após os respectivos aceites.
-9. Na aba **Segurança e 2FA**, simule senha → código → acesso, usando o código fictício `123456`.
+8. Na página principal, **Pacotes** compara somente os recursos. Na página **/comercial/**, confira o comparativo com valores e condições de contratação.
+9. Na seção **Segurança**, simule senha → código → acesso, usando o código fictício `123456`.
 
 ## Cadastro, login e compra de não sócios
 
@@ -66,7 +76,7 @@ A prévia usa a chave `ccb-offline-gate-demo-v1` no `localStorage`, somente com 
 
 Esta apresentação não é um aplicativo instalado ou uma PWA para iniciar sem rede. O botão offline simula a indisponibilidade da conexão na lógica de validação; não desliga a internet do aparelho. O produto final requer leitor e recursos disponíveis no dispositivo, lista e credenciais autorizadas com validade limitada, verificação de integridade/assinatura, armazenamento protegido, regras de divisão de ingressos e sincronização com auditoria e tratamento de conflitos. Deve ser homologado em evento piloto com conectividade interrompida e vários aparelhos.
 
-## Investimento e segurança
+## Condições comerciais e segurança
 
 Condições da proposta em 23/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. Não contempla ingressos ou portaria. O pacote app adicional inclui o módulo de ingressos e portaria online/offline, além da experiência mobile. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
 
@@ -87,10 +97,12 @@ As alterações ficam no `localStorage` do navegador. Para reiniciar os dados, r
 
 ## Organização
 
+- `src/App.jsx` e `src/main.jsx`: apresentação funcional, sem preços de contratação nem link comercial.
+- `comercial/index.html`, `src/CommercialApp.jsx` e `src/commercial-main.jsx`: página comercial independente.
 - `src/sections/`: seções da apresentação.
 - `src/components/`: prévias e componentes reutilizáveis.
 - `src/lib/`: estado e regras da demonstração.
-- `tests/`: testes de eventos, ingressos, pagamentos, restauração, condições comerciais, cópias do associado e lista offline da portaria com sincronização e conflitos.
+- `tests/`: testes de eventos, ingressos, pagamentos, restauração, condições comerciais, cópias do associado e portaria; `presentations.test.mjs` renderiza os componentes no servidor e confere a separação das páginas e os dois HTMLs de entrada.
 - `public/assets/`: identidade e fotos do site público atual.
 - `.github/workflows/pages.yml`: testes, build e publicação no GitHub Pages.
 

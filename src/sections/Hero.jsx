@@ -29,7 +29,7 @@ export default function Hero() {
                 Conhecer a experiência
                 <Icon name="arrow" size={18} />
               </a>
-              <a className="button button-secondary" href="#investimento">
+              <a className="button button-secondary" href="#pacotes">
                 <Icon name="list" size={20} />
                 Comparar os pacotes
               </a>

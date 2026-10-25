@@ -54,7 +54,7 @@ function Disclosure({ title, children }) {
 export default function InvestmentPlan() {
   return (
     <>
-      <PackageComparison />
+      <PackageComparison showPrices />
       <div className="investment-plan-grid">
         <article className="investment-main-card">
           <div className="investment-card-label">
@@ -214,7 +214,7 @@ export default function InvestmentPlan() {
           </p>
         </div>
       </article>
-      <div className="investment-disclosures">
+      <div className="investment-disclosures section-anchor" id="condicoes">
         <Disclosure title="Despesas separadas">
           <ul className="investment-conditions">
             <li>

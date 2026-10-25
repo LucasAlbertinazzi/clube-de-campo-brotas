@@ -39,7 +39,8 @@ import {
   Search,
 } from "lucide-react";
 
-export const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
+export const asset = (name) =>
+  `${globalThis.document?.documentElement.dataset.assetBase ?? import.meta.env.BASE_URL}assets/${name}`;
 const icons = {
   arrow: ArrowRight,
   external: ArrowUpRight,
