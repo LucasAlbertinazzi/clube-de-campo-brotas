@@ -9,18 +9,18 @@ Desenvolvido pela Nevuma Tech.
 
 O build gera dois documentos HTML e entradas independentes. Os valores fictícios de mensalidades e ingressos nas demonstrações funcionais continuam ilustrativos; não são os preços de contratação da plataforma. Os valores aprovados são exibidos apenas na página comercial, sem mudança das condições. A separação é editorial: as duas páginas são públicas.
 
-## Proposta comercial de 23/10/2026
+## Proposta comercial de 25/10/2026
 
-Esta revisão separa o pacote web do aplicativo opcional. Os valores web foram mantidos por orientação do responsável; os prazos e a oferta mobile abaixo compõem a revisão autorizada para publicação em 23/10/2026. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
+Esta revisão mantém a separação do pacote web e do aplicativo opcional. As mensalidades abaixo foram aprovadas pelo responsável em 25/10/2026, com total de R$ 5.000/mês se ambos forem contratados. Implantação, desenvolvimento, escopo e prazos permanecem os mesmos. As condições descrevem a proposta comercial e dependem da contratação pelo clube.
 
 | Oferta                               | Desenvolvimento / implantação | Manutenção                                       | Prazo proposto                                                 |
 | ------------------------------------ | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
-| Site, portal, agenda e painel web    | R$ 7.900                      | R$ 2.490/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
-| App Android/iOS + ingressos opcional | R$ 9.900                      | R$ 3.500/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
+| Site, portal, agenda e painel web    | R$ 7.900                      | R$ 3.500/mês por 48 meses                        | 120 dias corridos até entrada em produção                      |
+| App Android/iOS + ingressos opcional | R$ 9.900                      | R$ 1.500/mês adicionais após lançamento e aceite | 90 dias corridos até envio às lojas, mais análise Apple/Google |
 
 O cronograma mobile começa após a implantação e o aceite web, contratação específica e liberação dos acessos necessários. Contratar somente o web oferece site, portal, família, cobranças e agenda informativa. O pacote app adicional reúne Android/iOS, notificações e todo o módulo de ingressos, com gestão no painel e portaria online/offline. Compra, pagamento de ingressos, cadastro de não sócios e exibição do QR Code acontecem exclusivamente no app, sem compra pelo navegador. A vigência e o suporte do app serão definidos no contrato próprio.
 
-A revisão autorizada da mensalidade mobile é R$ 3.500. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 5.990. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
+A revisão autorizada da mensalidade mobile é R$ 1.500. Se ambos forem contratados, a soma das mensalidades web e mobile será R$ 5.000. Os valores de desenvolvimento/implantação e os prazos permanecem os mesmos. A composição interna de custos não integra a apresentação pública.
 
 As estimativas pressupõem escopo aprovado e disponibilização de conteúdo, dados e acessos. A cobrança web começa após implantação e aceite; a adicional mobile, após lançamento e aceite. As condições serão formalizadas em contrato. A implantação pública do app depende da aprovação das lojas e do aceite do clube.
 
@@ -78,7 +78,7 @@ Esta apresentação não é um aplicativo instalado ou uma PWA para iniciar sem 
 
 ## Condições comerciais e segurança
 
-Condições da proposta em 23/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$2.490 por 48 meses. Não contempla ingressos ou portaria. O pacote app adicional inclui o módulo de ingressos e portaria online/offline, além da experiência mobile. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
+Condições da proposta em 25/10/2026: o pacote web mantém implantação de R$7.900 e mensalidade de R$3.500 por 48 meses. Não contempla ingressos ou portaria. O pacote app adicional inclui o módulo de ingressos e portaria online/offline, além da experiência mobile. Hospedagem, banco, backups, segurança, manutenção e até quatro horas mensais de atendimento em horário comercial permanecem incluídos. O app Android/iOS, com ingresso salvo e notificações, é opcional e tem a proposta separada descrita no início deste README.
 
 O domínio, tarifas bancárias, contas Apple/Google, celulares e internet da portaria ficam por conta do clube. Serviços e funcionalidades adicionais terão orçamento separado. Integração financeira, exportação cadastral, escopo, cronograma e condições contratuais devem ser confirmados antes do fechamento. A apresentação e os dados usados pelo frontend contêm apenas a proposta comercial, sem composição de custos operacionais.
 

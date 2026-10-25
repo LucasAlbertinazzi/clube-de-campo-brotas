@@ -18,7 +18,7 @@ test("pacote web mantém os valores comerciais e a vigência aprovados", () => {
   );
   assert.equal(
     wholeMoney(proposal.monthlyCents).replace(/\s/g, " "),
-    "R$ 2.490",
+    "R$ 3.500",
   );
   assert.equal(proposal.termMonths, 48);
 });
@@ -26,16 +26,16 @@ test("pacote web mantém os valores comerciais e a vigência aprovados", () => {
 test("contratação web não cobra o app opcional automaticamente", () => {
   assert.equal(mobileProposal.optional, true);
   assert.equal(mobileProposal.status, "offered");
-  assert.equal(recurringTotal(), 249000);
-  assert.equal(recurringTotal({ includeMobile: false }), 249000);
-  assert.equal(recurringTotal({ includeMobile: true }), 599000);
+  assert.equal(recurringTotal(), 350000);
+  assert.equal(recurringTotal({ includeMobile: false }), 350000);
+  assert.equal(recurringTotal({ includeMobile: true }), 500000);
   assert.equal(
     wholeMoney(mobileProposal.developmentCents).replace(/\s/g, " "),
     "R$ 9.900",
   );
   assert.equal(
     wholeMoney(mobileProposal.monthlyCents).replace(/\s/g, " "),
-    "R$ 3.500",
+    "R$ 1.500",
   );
 });
 

@@ -36,7 +36,7 @@ test("apresentação principal mantém demonstrações e prazos sem valores da p
   );
   assert.doesNotMatch(
     text(markup),
-    /R\$\s*(?:7\.900|2\.490|9\.900|3\.500|5\.990)/,
+    /R\$\s*(?:7\.900|2\.490|9\.900|3\.500|1\.500|5\.000|5\.990)/,
   );
   assert.doesNotMatch(markup, /href="[^"]*comercial/);
   assert.match(markup, /id="experiencias"/);
@@ -50,9 +50,10 @@ test("apresentação principal mantém demonstrações e prazos sem valores da p
 test("página comercial apresenta todos os valores aprovados e a separação dos pacotes", () => {
   const markup = renderToStaticMarkup(createElement(CommercialApp));
   const content = text(markup);
-  for (const amount of ["7.900", "2.490", "9.900", "3.500", "5.990"])
+  for (const amount of ["7.900", "3.500", "9.900", "1.500", "5.000"])
     assert.match(content, new RegExp(`R\\$\\s*${amount.replace(".", "\\.")}`));
   assert.match(content, /48 meses/);
+  assert.doesNotMatch(content, /R\$\s*(?:2\.490|5\.990)/);
   assert.match(content, /exclusivamente no app/);
   assert.match(content, /após seu lançamento e aceite/);
   assert.match(content, /Desenvolvido pela Nevuma Tech/);
@@ -70,7 +71,7 @@ test("comparativo reutilizado só mostra valores quando explicitamente habilitad
         createElement(PackageComparison, { showPrices: true }),
       ),
     ),
-    /R\$\s*5\.990/,
+    /R\$\s*5\.000/,
   );
 });
 

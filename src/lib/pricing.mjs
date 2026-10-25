@@ -1,7 +1,7 @@
 export const proposal = Object.freeze({
-  date: "23/10/2026",
+  date: "25/10/2026",
   implementationCents: 790000,
-  monthlyCents: 249000,
+  monthlyCents: 350000,
   termMonths: 48,
   supportHours: 4,
 });
@@ -10,7 +10,7 @@ export const mobileProposal = Object.freeze({
   optional: true,
   status: "offered",
   developmentCents: 990000,
-  monthlyCents: 350000,
+  monthlyCents: 150000,
 });
 
 export const webDelivery = Object.freeze([
